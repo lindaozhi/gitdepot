@@ -1,0 +1,781 @@
+  [1m[36mSQL (2.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (145.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (116.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateProducts (20110715062949)
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110715062949')
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:32:26 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (3.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 5972ms (Views: 837.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:33:23 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 997ms (Views: 536.0ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20110715062949)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:35:29 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 68ms (Views: 56.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:35:36 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 68ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:35:55 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 94ms (Views: 78.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:36:05 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 72ms (Views: 58.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:37:36 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 67ms (Views: 55.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:37:38 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 69ms (Views: 55.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Fri Jul 15 14:37:59 +0800 2011
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (124.0ms)
+Rendered products/new.html.erb within layouts/application (148.0ms)
+Completed 200 OK in 208ms (Views: 195.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at Fri Jul 15 14:38:09 +0800 2011
+  Processing by ProductsController#create as HTML
+  Parameters: {"commit"=>"Create Product", "authenticity_token"=>"JRldh9nQC5MVSaLr/OpycdQNwesGQ2C7b3ej4OiITRk=", "utf8"=>"✓", "product"=>{"price"=>"1", "title"=>"1", "image_url"=>"1", "description"=>"1"}}
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (3.0ms)[0m  INSERT INTO "products" ("price", "description", "updated_at", "image_url", "created_at", "title") VALUES (1, '1', '2011-07-15 06:38:09.191282', '1', '2011-07-15 06:38:09.191282', '1')
+Redirected to http://127.0.0.1:3000/products/1
+Completed 302 Found in 315ms
+
+
+Started GET "/products/1" for 127.0.0.1 at Fri Jul 15 14:38:09 +0800 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 97ms (Views: 75.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:38:27 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 86ms (Views: 72.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:38:31 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 82ms (Views: 69.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:38:32 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (93.0ms)
+Completed 200 OK in 153ms (Views: 140.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:40:16 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 114ms (Views: 97.0ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20110715062949)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:41:07 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 97ms (Views: 82.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:41:09 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 106ms (Views: 88.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:41:10 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 93ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:42:06 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (2.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 406ms (Views: 119.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:42:25 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (130.0ms)
+Completed 200 OK in 219ms (Views: 200.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:42:28 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 110ms (Views: 92.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:43:35 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 135ms (Views: 122.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:53:19 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (109.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (78.0ms)
+Completed 200 OK in 6848ms (Views: 780.0ms | ActiveRecord: 109.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:54:13 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (343.2ms)
+Completed 200 OK in 530ms (Views: 483.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 14:54:27 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 218ms (Views: 187.2ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (109.2ms)[0m  DELETE FROM "products" WHERE 1=1
+  [1m[36mAREL (15.6ms)[0m  [1mINSERT INTO "products" ("updated_at", "title", "description", "image_url", "price", "created_at") VALUES ('2011-07-15 06:57:23.174853', 'Web Design for Developers', '<p>
+ <em>Web Design for Developers</em> will show you how to make your
+ web-based application look professionally designed. We''ll help you
+ learn how to pick the right colors and fonts, avoid costly interface
+ and accessibility mistakes -- your application will really come alive.
+ We''ll also walk you through some common Photoshop and CSS techniques
+ and work through a web site redesign, taking a new design from concept
+ all the way to implementation.
+ </p>', '/images/wd4d.jpg', 42, '2011-07-15 06:57:23.174853')[0m
+  [1m[35mAREL (15.6ms)[0m  INSERT INTO "products" ("updated_at", "title", "description", "image_url", "price", "created_at") VALUES ('2011-07-15 06:57:23.720854', 'Programming Ruby 1.9', '<p>
+ Ruby is the fastest growing and most exciting dynamic language
+ out there. If you need to get working programs delivered fast,
+ you should add Ruby to your toolbox.
+ </p>', '/images/ruby.jpg', 49, '2011-07-15 06:57:23.720854')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "products" ("updated_at", "title", "description", "image_url", "price", "created_at") VALUES ('2011-07-15 06:57:23.892454', 'Rails Test Prescriptions', '<p>
+ <em>Rails Test Prescriptions</em> is a comprehensive guide to testing
+ Rails applications, covering Test-Driven Development from both a
+ theoretical perspective (why to test) and from a practical perspective
+ (how to test effectively). It covers the core Rails testing tools and
+ procedures for Rails 2 and Rails 3, and introduces popular add-ons,
+ including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
+ </p>', '/images/rtp.jpg', 43, '2011-07-15 06:57:23.892454')[0m
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (187.2ms)[0m  DELETE FROM "products" WHERE 1=1
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "products" ("image_url", "description", "created_at", "title", "updated_at", "price") VALUES ('/images/wd4d.jpg', '<p>
+ <em>Web Design for Developers</em> will show you how to make your
+ web-based application look professionally designed. We''ll help you
+ learn how to pick the right colors and fonts, avoid costly interface
+ and accessibility mistakes -- your application will really come alive.
+ We''ll also walk you through some common Photoshop and CSS techniques
+ and work through a web site redesign, taking a new design from concept
+ all the way to implementation.
+ </p>', '2011-07-15 06:58:59.146222', 'Web Design for Developers', '2011-07-15 06:58:59.146222', 42)[0m
+  [1m[35mAREL (15.6ms)[0m  INSERT INTO "products" ("image_url", "description", "created_at", "title", "updated_at", "price") VALUES ('/images/ruby.jpg', '<p>
+ Ruby is the fastest growing and most exciting dynamic language
+ out there. If you need to get working programs delivered fast,
+ you should add Ruby to your toolbox.
+ </p>', '2011-07-15 06:58:59.536222', 'Programming Ruby 1.9', '2011-07-15 06:58:59.536222', 49)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "products" ("image_url", "description", "created_at", "title", "updated_at", "price") VALUES ('/images/rtp.jpg', '<p>
+ <em>Rails Test Prescriptions</em> is a comprehensive guide to testing
+ Rails applications, covering Test-Driven Development from both a
+ theoretical perspective (why to test) and from a practical perspective
+ (how to test effectively). It covers the core Rails testing tools and
+ procedures for Rails 2 and Rails 3, and introduces popular add-ons,
+ including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
+ </p>', '2011-07-15 06:58:59.785823', 'Rails Test Prescriptions', '2011-07-15 06:58:59.785823', 43)[0m
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 15:03:20 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 515ms (Views: 140.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 15:23:59 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (109.2ms)
+Completed 200 OK in 187ms (Views: 171.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 15:24:03 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 125ms (Views: 109.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 15:28:58 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (140.4ms)
+Completed 200 OK in 359ms (Views: 312.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 15:29:31 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 374ms (Views: 249.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 15:29:35 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (93.6ms)
+Completed 200 OK in 374ms (Views: 327.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 16:59:24 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[36mProduct Load (15.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+ERROR: compiling _app_views_products_index_html_erb___1029372086_61291380_0 RAISED compile error
+E:/railsProject/depot/app/views/products/index.html.erb:5: syntax error, unexpected '\n', expecting '|'
+E:/railsProject/depot/app/views/products/index.html.erb:35: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _app_views_products_index_html_erb___1029372086_61291380_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "products/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<div id="product_list">
+<h1>Listing products</h1>
+
+<table>
+');	 @product.each do |product
+@output_buffer.safe_concat('  <tr class="');@output_buffer.append= ( cycle('list_line_odd','list_line_even'));@output_buffer.safe_concat('">
+  	
+  	<td>
+  		');@output_buffer.append= ( image_tag(product.image_url,:class => 'list_image'));@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  	</td>
+  	
+  	<td class="list_description">
+  		<dl>
+  			<dt>');@output_buffer.append= ( product.title);@output_buffer.safe_concat('</dt>
+  			<dd>');@output_buffer.append= ( truncate(strip_tags(product.description)));@output_buffer.safe_concat('</dd>
+  		</dl>
+  	</td>
+  	
+  	<td class="list_actions">
+  		');@output_buffer.append= ( link_to 'Show', product);@output_buffer.safe_concat('<br/>
+  		');@output_buffer.append= ( link_to 'Edit', edit_product_path(product));@output_buffer.safe_concat('<br/>
+  		');@output_buffer.append= ( link_to 'Destroy', product,
+  		             :comfirm => "Are you sure?",
+  		             :method => :delete);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('    </td>
+  </tr>
+');    end
+@output_buffer.safe_concat('</table>
+</div>
+
+<br/>
+
+');@output_buffer.append= ( link_to 'New Product', new_product_path );@output_buffer.safe_concat('
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: E:/railsProject/depot/app/views/products/index.html.erb:35:in `compile'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/template.rb:134:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:54:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/template.rb:127:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:59:in `_render_template'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:56:in `_render_template'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:26:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:115:in `_render_template'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:93:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:17:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+d:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:39:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:14:in `default_render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:192:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+E:/railsProject/depot/app/controllers/products_controller.rb:7:in `index'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:150:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:11:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:18:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:436:in `_run__1029162686__process_action__199225275__callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `send'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `send'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `run_callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:17:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rescue.rb:17:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:119:in `process'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:41:in `process'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal.rb:138:in `dispatch'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal.rb:178:in `action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:27:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:493:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/head.rb:14:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/methodoverride.rb:24:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/flash.rb:182:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:32:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:12:in `cache'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:31:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/sendfile.rb:107:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/rack/logger.rb:13:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/runtime.rb:17:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `synchronize'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/static.rb:30:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/application.rb:168:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/application.rb:77:in `send'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/application.rb:77:in `method_missing'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/rack/log_tailer.rb:14:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/content_length.rb:13:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:52:in `service'
+d:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+d:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:13:in `run'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/server.rb:217:in `start'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands/server.rb:65:in `start'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands.rb:30
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands.rb:27:in `tap'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered products/index.html.erb within layouts/application (514.8ms)
+Completed   in 811ms
+
+ActionView::Template::Error (compile error
+E:/railsProject/depot/app/views/products/index.html.erb:5: syntax error, unexpected '\n', expecting '|'
+E:/railsProject/depot/app/views/products/index.html.erb:35: syntax error, unexpected kENSURE, expecting $end):
+    2: <h1>Listing products</h1>
+    3: 
+    4: <table>
+    5: 	<% @product.each do |product%>
+    6:   <tr class="<%= cycle('list_line_odd','list_line_even')%>">
+    7:   	
+    8:   	<td>
+  app/views/products/index.html.erb:35:in `compile'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.2ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (78.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 16:59:45 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+ERROR: compiling _app_views_products_index_html_erb___1029372086_61543932_0 RAISED compile error
+E:/railsProject/depot/app/views/products/index.html.erb:5: syntax error, unexpected '\n', expecting '|'
+E:/railsProject/depot/app/views/products/index.html.erb:35: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _app_views_products_index_html_erb___1029372086_61543932_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "products/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<div id="product_list">
+<h1>Listing products</h1>
+
+<table>
+');	 @products.each do |product
+@output_buffer.safe_concat('  <tr class="');@output_buffer.append= ( cycle('list_line_odd','list_line_even'));@output_buffer.safe_concat('">
+  	
+  	<td>
+  		');@output_buffer.append= ( image_tag(product.image_url,:class => 'list_image'));@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  	</td>
+  	
+  	<td class="list_description">
+  		<dl>
+  			<dt>');@output_buffer.append= ( product.title);@output_buffer.safe_concat('</dt>
+  			<dd>');@output_buffer.append= ( truncate(strip_tags(product.description)));@output_buffer.safe_concat('</dd>
+  		</dl>
+  	</td>
+  	
+  	<td class="list_actions">
+  		');@output_buffer.append= ( link_to 'Show', product);@output_buffer.safe_concat('<br/>
+  		');@output_buffer.append= ( link_to 'Edit', edit_product_path(product));@output_buffer.safe_concat('<br/>
+  		');@output_buffer.append= ( link_to 'Destroy', product,
+  		             :comfirm => "Are you sure?",
+  		             :method => :delete);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('    </td>
+  </tr>
+');    end
+@output_buffer.safe_concat('</table>
+</div>
+
+<br/>
+
+');@output_buffer.append= ( link_to 'New Product', new_product_path );@output_buffer.safe_concat('
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: E:/railsProject/depot/app/views/products/index.html.erb:35:in `compile'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/template.rb:134:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:54:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/template.rb:127:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:59:in `_render_template'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:56:in `_render_template'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:26:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:115:in `_render_template'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:93:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:17:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+d:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:39:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:14:in `default_render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:192:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+E:/railsProject/depot/app/controllers/products_controller.rb:7:in `index'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:150:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:11:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:18:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:436:in `_run__1029162686__process_action__199225275__callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `send'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `send'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `run_callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:17:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rescue.rb:17:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:119:in `process'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:41:in `process'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal.rb:138:in `dispatch'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal.rb:178:in `action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:27:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:493:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/head.rb:14:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/methodoverride.rb:24:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/flash.rb:182:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:32:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:12:in `cache'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:31:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/sendfile.rb:107:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/rack/logger.rb:13:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/runtime.rb:17:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `synchronize'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/static.rb:30:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/application.rb:168:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/application.rb:77:in `send'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/application.rb:77:in `method_missing'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/rack/log_tailer.rb:14:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/content_length.rb:13:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:52:in `service'
+d:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+d:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:13:in `run'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/server.rb:217:in `start'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands/server.rb:65:in `start'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands.rb:30
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands.rb:27:in `tap'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered products/index.html.erb within layouts/application (0.0ms)
+Completed   in 62ms
+
+ActionView::Template::Error (compile error
+E:/railsProject/depot/app/views/products/index.html.erb:5: syntax error, unexpected '\n', expecting '|'
+E:/railsProject/depot/app/views/products/index.html.erb:35: syntax error, unexpected kENSURE, expecting $end):
+    2: <h1>Listing products</h1>
+    3: 
+    4: <table>
+    5: 	<% @products.each do |product%>
+    6:   <tr class="<%= cycle('list_line_odd','list_line_even')%>">
+    7:   	
+    8:   	<td>
+  app/views/products/index.html.erb:35:in `compile'
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (46.8ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (78.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 17:00:07 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (733.2ms)
+Completed 200 OK in 796ms (Views: 780.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 17:01:25 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 109ms (Views: 93.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 17:03:47 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (109.2ms)
+Completed 200 OK in 172ms (Views: 171.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 17:04:41 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 17:04:43 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 109ms (Views: 93.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 17:06:16 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[35mProduct Load (15.6ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (93.6ms)
+Completed 200 OK in 156ms (Views: 140.4ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 17:06:20 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 17:07:03 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 109ms (Views: 93.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Fri Jul 15 17:07:05 +0800 2011
+  Processing by ProductsController#index as 
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (93.6ms)
+Completed 200 OK in 156ms (Views: 156.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at Mon Jul 18 08:47:25 +0800 2011
+  Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (15.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (468.0ms)
+Completed 200 OK in 718ms (Views: 514.8ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at Mon Jul 18 08:47:42 +0800 2011
+  Processing by ProductsController#new as HTML
+Rendered products/_form.html.erb (109.2ms)
+Rendered products/new.html.erb within layouts/application (140.4ms)
+Completed 200 OK in 187ms (Views: 171.6ms | ActiveRecord: 0.0ms)

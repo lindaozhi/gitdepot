@@ -29,6 +29,7 @@ en:
       questions:   "Questions"
       news:        "News"
       contact:     "Contact"
+      help:        "help"
 #END:layout
 
 #START:cart

@@ -59,6 +59,7 @@ es:
       questions:   "Preguntas"
       news:        "Noticias"
       contact:     "Contacto"
+      help:        "ayuda"
 #END:layout
 
 #START:cart

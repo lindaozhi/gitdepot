@@ -3,8 +3,8 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @input_attributes = {
-      :name  => "sam",
-      :password => "private",
+      :name                  => "Sam",
+      :password              => "private",
       :password_confirmation => "private"
     }
     @user = users(:one)

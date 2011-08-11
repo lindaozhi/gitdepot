@@ -29,7 +29,6 @@ en:
       questions:   "Questions"
       news:        "News"
       contact:     "Contact"
-      help:        "help"
 #END:layout
 
 #START:cart
@@ -44,7 +43,7 @@ en:
   store:
     index:
       title_html:  "Your Pragmatic Catalog"
-      add_html:    "Add to Cart"
+      add:    "Add to Cart"
 #END:main
 
 #START:checkout
@@ -53,10 +52,10 @@ en:
       legend:       "Please Enter Your Details"
     form:
       name:         "Name"
-      address_html: "Address"
+      address: "Address"
       email:        "E-mail"
       pay_type:     "Pay with"
-      pay_prompt_html: "Select a payment method"
+      pay_prompt: "Select a payment method"
       submit:       "Place Order"
 #END:checkout
 

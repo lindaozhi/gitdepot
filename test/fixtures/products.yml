@@ -4,6 +4,19 @@ one:
   title: MyString
   description: MyText
   image_url: MyString
+  price: 1
+
+two:
+  title: MyString
+  description: MyText
+  image_url: MyString
+  price: 1
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  image_url: MyString
   price: 9.99
 
 two:
@@ -11,8 +24,8 @@ two:
   description: MyText
   image_url: MyString
   price: 9.99
+  
 #START:ruby
-
 ruby: 
   title:       Programming Ruby 1.9
   description: 
@@ -22,3 +35,4 @@ ruby:
   price:       49.50
   image_url:   ruby.png 
 #END:ruby
+

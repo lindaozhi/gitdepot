@@ -1,6 +1,48 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
+  
+  ############################################################################
+ def configure_charsets  
+     @headers["Content-Type"]="text/html;charset=utf-8" 
+   end       
+ 
+  def upload_file(file)  
+     unless file.original_filename.empty?
+       @filename=get_file_name(file.original_filename)   
+       File.open("#{RAILS_ROOT}/public/uploads/#{@filename}", "wb") do |f|  
+       f.write(file.read)  
+       end  
+       return @filename 
+     end  
+   end 
+   
+   def get_file_name(filename)  
+     unless filename.nil?  
+       Time.now.strftime("%Y%m%d%H%M%S") + '_' + filename  
+     end  
+   end  
+ 
+   def save_file
+     if request.get? == false 
+     # unless params[:file]['file'].original_filename.empty?
+       if filename=upload_file(params[:file]['file'])  
+         return filename  
+       end  
+     end  
+   end  
+
+  ############################################################################
+  
+  
+  
+  def who_bought
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.atom
+      format.xml { render :xml => product }
+    end
+  end
   def index
     @products = Product.all
 
@@ -40,8 +82,13 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.xml
   def create
-    @product = Product.new(params[:product])
-
+    # if request.get?
+      @product = Product.new(params[:product])      
+      @filename = save_file
+      @product.image_url = "/uploads/#{@filename}"  
+    # else
+      # @product = Product.new(params[:product]) 
+    # end
     respond_to do |format|
       if @product.save
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
@@ -78,14 +125,6 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(products_url) }
       format.xml  { head :ok }
-    end
-  end
-  
-  def who_bought
-    @product = Product.find(params[:id])
-    respond_to do |format|
-      format.atom
-      format.xml {render :xml => @product}
     end
   end
 end

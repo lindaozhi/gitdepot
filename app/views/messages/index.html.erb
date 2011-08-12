@@ -1,0 +1,47 @@
+<div id="product_list">
+<font size=4>
+<marquee direction = up height = 100 width = 300>
+	<% @messages.each do |message|%>
+		<%= message.title%><br/>
+	<% end %>	
+</marquee>
+</font>
+  <h1>News</h1>
+
+  <table>
+ <% @messages.each do |message| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+
+      <td class="list_description">
+        <dl>
+          <dt><%= message.title %></dt>
+          <dd><%= truncate(strip_tags(message.description),
+                 :length => 80) %></dd> 
+           <dt>
+           	<% if @user == nil || (@user != nil && @user.user_type == 2)%>
+           		<%= button_to 'Show',message,:method => :get%>
+           	<% end %>
+           </dt>         
+        </dl>
+      </td>
+     	<% if @user != nil && @user.user_type == 1%>
+      	<td class="list_actions"> 
+      		<%= link_to 'Show', message %><br/> 
+        	
+        	<%= link_to 'Edit', edit_message_path(message) %><br/>
+        	<%= link_to 'Destroy', message, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>  
+                       
+     	 </td>
+        <%end%> 
+    </tr>
+  <% end %>
+  </table>
+</div>
+
+<br />
+<% if @user != nil && @user.user_type == 1%>
+	<%= link_to 'New Message', new_message_path %>
+<%end%>
+

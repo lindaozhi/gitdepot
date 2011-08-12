@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
-  skip_before_filter :authorize, :only => [:create, :update, :delete, :destroy]
+  skip_before_filter :authorize, :only => [:create,:update,:destroy]
+  
   # GET /carts
   # GET /carts.xml
   def index
@@ -17,7 +18,7 @@ class CartsController < ApplicationController
     begin
       @cart = Cart.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      logger.error "Attemp to access invalid cart #{params[:id]}"
+      logger.error "Attempt to access invalid cart #{params[:id]}"
       redirect_to store_url, :notice => 'Invalid cart'
     else
       respond_to do |format|
@@ -80,7 +81,6 @@ class CartsController < ApplicationController
   def destroy
     @cart = Cart.find(params[:id])
     @cart.destroy
-    
     session[:cart_id] = nil
 
     respond_to do |format|

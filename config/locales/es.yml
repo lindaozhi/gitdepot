@@ -33,7 +33,7 @@ es:
       order:       "pedido"
     attributes:
       order:
-        address:   "Dirección"
+        address:   "Direcci&oacute;n"
         name:      "Nombre"
         email:     "E-mail"
         pay_type:  "Forma de pago"
@@ -72,8 +72,8 @@ es:
 #START:main
   store:
     index:
-      title_html:  "Su Catálogo de Pragmatic"
-      add:    "Añadir al Carrito"
+      title_html:  "Su Cat&aacute;logo de Pragmatic"
+      add:    "A&ntilde;adir al Carrito"
 #END:main
 
 #START:checkout
@@ -82,10 +82,10 @@ es:
       legend:       "Por favor, introduzca sus datos"
     form:
       name:         "Nombre"
-      address: "Dirección"
+      address: "Direcci&oacute;n"
       email:        "E-mail"
       pay_type:     "Pagar con"
-      pay_prompt: "Seleccione un método de pago"
+      pay_prompt: "Seleccione un m&eacute;todo de pago"
       submit:       "Realizar Pedido"
 #END:checkout
 

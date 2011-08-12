@@ -15,13 +15,23 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+  
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :image_url %><br />
+    <%= f.label :image_url %><br />   
     <%= file_field 'file', 'file'%>
+  </div>
+  
+  <div class="field">
+  	<%= f.label :inventory %><br/>
+  	<%= f.text_field :inventory%>
   </div>
   <div class="field">
     <%= f.label :price %><br />

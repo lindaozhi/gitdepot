@@ -3,7 +3,7 @@
 one:
   name: Dave Thomas
   address: MyText
-  email: Dave@example.org
+  email: dave@example.org
   pay_type: Check
 
 two:

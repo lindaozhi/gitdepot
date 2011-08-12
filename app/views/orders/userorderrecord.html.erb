@@ -1,0 +1,44 @@
+<h1>Listing orders record</h1>
+
+<table>
+  <tr>
+  	<th>UserName</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Email</th>
+    <th>Pay type</th>
+    <th>Order status</th>
+    <th></th>
+    <th></th>
+    <th></th>   
+  </tr>
+<% if @orders %>
+<% @orders.each do |order| %>
+  <% if @user.name == order.user_name %>
+  <tr>
+  	<td><%= order.user_name%></td>
+    <td><%= order.name %></td>
+    <td><%= order.address %></td>
+    <td><%= order.email %></td>
+    <td><%= order.pay_type %></td>
+ 	<td><% if order.orderstatus == 0%>
+    		<%= 'unsent'%>
+    	<% elsif order.orderstatus == 1 %>
+    		<%= 'sent'%>
+    	<% elsif order.orderstatus == 2 %>
+    	    <%= 'cancel'%>
+    	<% end %>
+    </td>    
+    <td><%= link_to 'Show', order %></td>
+    <!-- <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td> -->
+  </tr>
+  <% end %>
+<% end %>
+
+</table>
+
+<br />
+
+<p><%= will_paginate @orders %></p>
+<% end %>

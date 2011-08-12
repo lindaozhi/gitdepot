@@ -3,11 +3,11 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @input_attributes = {
-      :name                  => "Sam",
-      :password              => "private",
+      :name => "Sam",
+      :password => "private",
       :password_confirmation => "private"
     }
-    @user = users(:one)
+    @user =users(:one)
   end
 
   test "should get index" do

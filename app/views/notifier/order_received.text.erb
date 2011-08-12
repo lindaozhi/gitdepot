@@ -1,5 +1,16 @@
 Dear <%= @order.name %>
-Thanks for your recent order from The Pragmatic Store
-Your order the following items:
-<%= render @order.line_items%>
-We'll send you a separate e-mail when your order ships
+
+Thank you for your recent order from The Pragmatic Store.
+
+You ordered the following items:
+
+<%= render @order.line_items %>
+
+Order status: <% if @order.orderstatus == 0%>
+    			<%= 'unsent'%>
+    		  <% elsif @order.orderstatus == 1 %>
+    		  	<%= 'sent'%>
+    		  <% elsif @order.orderstatus == 2 %>
+    	    	<%= 'cancel'%>
+    		  <% end %>
+We'll send you a separate e-mail when your order ships.

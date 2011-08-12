@@ -1,25 +1,112 @@
+<style>
+	#ta
+	{
+		font-size:120%;
+		background-color:#bfb;
+		BORDER-BOTTOM:0px solid;
+		BORDER-LEFT:0px solid;
+		BORDER-RIGHT:0px solid;
+		BORDER-TOP:0px solid;
+	}
+</style>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @product.title %>
-</p>
+<table>
+	<tr valign= "top">
+		<td style="width:20%">
+			<p><%= image_tag @product.image_url %></p>		
+		</td>
+		<td style="width:80%">
+  			<h2><b><%= @product.title %></b></h2>	
+  			<b>Author:<b><%= @product.author%>
+			<p>			
+  				<b>Inventory:</b>   
+  			 	<%= @product.inventory %>  
+			</p>
 
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
+			<p>
+  				<b>Price:</b>
+  				<%= @product.price %>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan = 2>			
+  			<h1>Description</h1>
+  			<%= @product.description %>
+			
+		</td>
+	</tr>	
+</table>
 
-<p>
-  <b>Image url:</b>
-  <%= @product.image_url %>
-</p>
 
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
+<br/>
 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+<% if session[:user_id]%>
+	<% if @user.user_type == 1 %>
+		<%= link_to 'Edit', edit_product_path(@product) %> |
+		<%= link_to 'Back', products_path %>
+	<% else %>
+		<%= link_to 'Back', store_path %>
+	<% end %>
+<%else%>	
+	<%= link_to 'Back', store_path %>
+<% end %>
+<br/>
+<br/>
+<% if @comments != nil%>
+<h1>Comment</h1>
+<div style="width:100%">	
+	
+		<% @comments.each do |comment|%>
+		<fieldset style="background-color:#bfb">
+			<% @user = User.find(comment.user_id)%>
+			<legend style="background-color:gray"><%= @user.name%>'s comment:</legend>
+		
+			 <textarea id="ta"  rows = "3" cols = "115" readonly="readonly"><%= comment.description%></textarea> 	
+			 <hr width="100%">
+			 commit at <%= comment.created_at%>		
+			</fieldset>	
+			<h5></h5>		
+		<% end %>
+	
+</div>
+<p><%= will_paginate @comments %></p>
+<% end %>
+
+
+<%= form_for @comment,:url => {:controller => "comments",:action => "create" , :id => @product} do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	
+
+
+  <!-- <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id ,:value => @product.id%>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id,:value => session[:user_id] %>
+  </div> -->
+
+  <div class="field">
+    <h1><%= f.label 'Writting Comment' %></h1><br />
+    <%= f.text_area :description ,:rows =>5,:cols => 100%>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Commit'%>
+  </div>
+<% end %>

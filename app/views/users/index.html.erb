@@ -1,0 +1,40 @@
+<h1>Listing users</h1>
+
+<p id="notic"><%= notice %></p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <% if user.user_type == 1%>
+  <tr>  	
+    <td><%= user.name %></td>
+    <td> <%= "adminstrator"%></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>
+<% end %>
+
+<% @users.each do |user| %>
+  <% if user.user_type == 2%>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= "user"%></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>    	
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Adminstrator', new_user_path %>

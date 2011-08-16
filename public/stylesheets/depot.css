@@ -16,6 +16,13 @@
         border-bottom: 3px dotted #77d;
 }
 
+#store h5{
+	 	font:  80% sans-serif;
+        color: #226;
+        border-bottom: 2px dotted #77d;
+}
+
+
 /* Styles for products/index */
 
 #product_list table {
@@ -132,7 +139,7 @@
 }
 
 #main {
-	margin-left: 15em;
+	margin-left: 18em;
 	padding-top: 4ex;
 	padding-left: 2em;
 	background: white;
@@ -143,7 +150,7 @@
 	padding-top: 1em;
 	padding-left: 1em;
 	padding-bottom: 1em;
-	width: 12em;
+	width: 17em;
 	background: #141;
 }
 
@@ -213,6 +220,66 @@
 .depot_form div{
 	margin: 0.5em 0;
 }
+
+.locale{
+	float:right;
+	padding-top:0.2em
+}
+
+.search {
+	color: white;
+}
+
+.order {
+	color: #222277;
+}
+
+.back {
+	position: absolute;
+	z-index: 4;
+/*	-moz-opacity: 0.8;*/
+	opacity: 0.8;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+	background-color: #000000;
+}
+.container {
+	position: absolute;
+	z-index: 6;
+	width:400px;
+	height: 420px;
+	top:-1000px;
+	left: -2000px;
+}
+
+.imageContainer {
+	border: 3px;
+	border-color: white;
+	border-style: solid;
+	height: 400px;
+}
+.enlargeButton, .narrowButton{
+	display: block;
+	position: absolute;
+	top: 408px;
+	
+}
+
+.enlargeButton{
+	left: 50px;
+}
+
+.narrowButton{
+	right: 50px;
+}
+
+.closeButton {
+	position: absolute;
+	right: -30px;
+	top: -30px;
+	opacity: 1.0;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+}
+
 /* Styles for the cart in the sidebar 
 #cart, #cart table {
 	font-size: smaller;

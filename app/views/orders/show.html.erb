@@ -20,6 +20,33 @@
   <%= @order.pay_type %>
 </p>
 
+<p>
+	<b>Order status:</b>
+	<% if @order.orderstatus == 0%>
+    		<%= 'unsent'%>
+    	<% elsif @order.orderstatus == 1 %>
+    		<%= 'sent'%>
+    	<% elsif @order.orderstatus == 2 %>
+    	    <%= 'cancel'%>
+    	<% end %>
+</p>
+<p>
+	<b>Goods:</b><br/>
+<!-- 	<%= render @order.line_items%> -->
+	<% for lineItem in @order.line_items%>
+		<%= render lineItem %><br/>
+	<% end %>
+</p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+
+<!-- <%= link_to 'Edit', edit_order_path(@order) %> | -->
+<% if @user.user_type == 1 && @order.orderstatus == 0%>
+ 	<%= link_to 'Send', {:controller => "orders",:action => "sendorder",:id => @order }%>
+    <%= link_to 'Cancel', {:controller => "orders",:action => "cancelorder",:id => @order } %>
+	<%= link_to 'Back', orders_path %>
+<% elsif @user.user_type == 1 %>
+	<%= link_to 'Back',ordersrecord_path%>
+<%elsif @user.user_type == 2%>
+	<%= link_to 'Edit',edit_order_path(@order)%>
+	<%= link_to 'Back',userorders_path%>
+<%end%>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+ <% @user = User.find(@favourite.user_id)%>
+ <%= @user.name %>
+</p>
+
+<% @product = Product.find(@favourite.product_id)%>
+<p>
+  <b>Product:</b> 
+ <%= @product.title %>
+</p>
+
+<p>
+	<b>Author:</b>
+	<%= @product.author %>
+</p>
+	
+<p>
+	<b>Price:</b>
+	<%=  number_to_currency(@product.price) %>
+</p>
+
+
+<!-- <%= link_to 'Edit', edit_favourite_path(@favourite) %> | -->
+<%= link_to 'Back', favourites_path %>

@@ -4,6 +4,12 @@ class Order < ActiveRecord::Base
   
   validates :name, :address, :email, :pay_type, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPES
+  validates :email, :format => {
+    :with => %r{[0-9a-zA-Z]+@[0-9a-zA-Z]+\.[0-9a-zA-Z]+},
+    :message=>'your email address is not legal'
+  }
+
+  
   
   def add_line_items_from_cart(cart)
     cart.line_items.each do |item|

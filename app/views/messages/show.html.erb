@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @message.title %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @message.author %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @message.description %>
+</p>
+
+<% if @user != nil && @user.user_type == 1%>
+	<%= link_to 'Edit', edit_message_path(@message) %> |
+<%end%>
+<%= link_to 'Back', messages_path %>

@@ -3,4 +3,8 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+<% if @user.user_type == 1%>
+	<%= link_to 'Back', orders_path %>
+<% else %>
+	<%= link_to 'Back',userorders_path%>
+<%end%>

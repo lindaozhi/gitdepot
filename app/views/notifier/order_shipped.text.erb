@@ -1,0 +1,16 @@
+Dear <%= @order.name %>
+
+Thank you for your recent order from The Pragmatic Store.
+
+You ordered the following items:
+
+<%= render @order.line_items %>
+
+<% if @order.orderstatus == 1 %>
+    <%= 'Order status: sent'%>
+    <%= 'We have sent goods!'%>
+<% else @order.orderstatus == 2 %>
+    <%= 'Order status:cancel'%>
+    <%= 'Welcome to buy next time!'%>
+<% end %>
+

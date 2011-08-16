@@ -1,0 +1,35 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<marquee>
+	<% @products.each do |product| %>
+		<%=image_tag(product.image_url) %>		
+	<% end %>
+</marquee>
+
+	<%= form_tag show_url do%>
+	  <fieldset>
+	  	<legend class="order">Order By</legend>
+            <%= link_to 'title', {:controller=>"store", :action=>"show_search",:search_name=>@search_name,:order=>"title"} %> 
+	        <%= link_to 'price', {:controller=>"store", :action=>"show_search",:search_name=>@search_name,:order=>"price"} %>
+	  </fieldset>
+    <%end%>
+<h1>List Your Search Books</h1>
+
+<% @products.each do |product| %>
+  <div class="entry">
+  	<%= image_tag(product.image_url) %>
+  	<h3><%= link_to  product.title ,{:controller => "products" ,:action => "show" ,:id => product},:style=>"text-decoration:none"%>&nbsp&nbsp (Inventory:<%= product.inventory%>)&nbsp&nbsp(Sales:<%= product.sales%>)</h3>
+  	<%= sanitize product.description %>
+  	<div class="price_line">
+  		<span class="price"><%= number_to_currency(product.price) %></span>
+  		<% if product.inventory != 0%>
+  			<%= button_to 'Add to Cart' , line_items_path(:product_id => product),
+  				:remote => true %>  
+  		<%end%>	
+  		<%= button_to 'Favourite', {:controller => "favourites",:action => "create",:id=> product}%>	
+    </div>
+  </div>
+<% end %>
+

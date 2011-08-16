@@ -2,10 +2,14 @@
 
 <table>
   <tr>
+  	<th>UserName</th>
     <th>Name</th>
     <th>Address</th>
     <th>Email</th>
     <th>Pay type</th>
+    <th>Order status</th>
+    <th></th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,12 +17,16 @@
 
 <% @orders.each do |order| %>
   <tr>
+  	<td><%= order.user_name%></td>
     <td><%= order.name %></td>
     <td><%= order.address %></td>
     <td><%= order.email %></td>
     <td><%= order.pay_type %></td>
+    <td><%= 'unsent'%></td>
     <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Send', {:controller => "orders",:action => "sendorder",:id => order }%></td>
+    <td><%= link_to 'Cancel', {:controller => "orders",:action => "cancelorder",:id => order } %></td>
+   <!--  <td><%= link_to 'Edit', edit_order_path(order) %></td> -->
     <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

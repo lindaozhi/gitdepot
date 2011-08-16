@@ -36,6 +36,7 @@ Depot::Application.routes.draw do
     get 'cancelorder' => :cancelorder
     get 'ordersrecord'=> :ordersrecord
     get 'userorderrecord' => :userorderrecord
+    get 'destroyOneOrder' => :destroyOneOrder
   end
   
   controller :favourites do

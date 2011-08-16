@@ -165,4 +165,13 @@ class OrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+   def destroyOneOrder
+    @order = Order.find(params[:id])
+    @order.destroy
+
+    redirect_to :controller => "orders" , :action => "ordersrecord"
+     
+    
+  end
 end

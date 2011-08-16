@@ -40794,3 +40794,2877 @@ Started GET "/en/products" for 127.0.0.1 at Fri Aug 12 01:14:57 +0800 2011
   [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 5 OFFSET 0
 Rendered products/index.html.erb within layouts/application (187.5ms)
 Completed 200 OK in 484ms (Views: 359.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 12 08:52:56 +0800 2011
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (46.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (15.6ms)[0m  INSERT INTO "carts" ("created_at", "updated_at") VALUES ('2011-08-12 00:52:58.828125', '2011-08-12 00:52:58.828125')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (1234.4ms)
+Completed 200 OK in 2219ms (Views: 1453.1ms | ActiveRecord: 62.5ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 08:55:43 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"we", "locale"=>"en"}
+  [1m[35mProduct Load (93.8ms)[0m  select* from Products where title like '%we%' or description like '%we%' order by title
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (453.1ms)
+Completed 200 OK in 938ms (Views: 718.8ms | ActiveRecord: 93.8ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 12 08:56:00 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (406.2ms)
+Completed 200 OK in 750ms (Views: 593.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:08:03 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  select* from Products where title like '%w%' or description like '%w%' order by title
+Completed   in 359ms
+
+NoMethodError (undefined method `paginate' for #<StoreController:0x47a1020>):
+  app/controllers/store_controller.rb:32:in `show_search'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (218.8ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (375.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:11:18 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  select* from Products where title like '%w%' or description like '%w%' order by title
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (515.6ms)
+Completed 200 OK in 953ms (Views: 812.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:11:30 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by title[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/show_search.html.erb within layouts/application (562.5ms)
+Completed 200 OK in 891ms (Views: 750.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:11:45 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  select* from Products where title like '%w%' or description like '%w%' order by title
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/show_search.html.erb within layouts/application (656.2ms)
+Completed 200 OK in 953ms (Views: 828.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 12 09:12:06 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (718.8ms)
+Completed 200 OK in 1156ms (Views: 953.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:12:11 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by title[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/show_search.html.erb within layouts/application (593.8ms)
+Completed 200 OK in 922ms (Views: 796.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:12:56 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  select* from Products where title like '%w%' or description like '%w%' order by title
+Rendered store/show_search.html.erb within layouts/application (359.4ms)
+Completed   in 1078ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<Array:0x489c558>):
+    34: 
+    35: <% end %>
+    36: 
+    37:  <p><%= will_paginate @products %></p>
+  app/views/store/show_search.html.erb:37:in `_app_views_store_show_search_html_erb___799442811_38050116_0'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (93.8ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (234.4ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:13:16 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  select* from Products where title like '%w%' or description like '%w%' order by title
+Rendered store/show_search.html.erb within layouts/application (312.5ms)
+Completed   in 672ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<Array:0x4619538>):
+    31:   		<%= button_to 'Favourite', {:controller => "favourites",:action => "create",:id=> product}%>	
+    32:     </div>
+    33:   </div>
+    34:  <p><%= will_paginate @products %></p>
+    35: <% end %>
+    36: 
+  app/views/store/show_search.html.erb:34:in `_app_views_store_show_search_html_erb___799442811_36740160_0'
+  app/views/store/show_search.html.erb:20:in `each'
+  app/views/store/show_search.html.erb:20:in `_app_views_store_show_search_html_erb___799442811_36740160_0'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (125.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (265.6ms)
+
+
+Started GET "/en?page=2" for 127.0.0.1 at Fri Aug 12 09:13:29 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"page"=>"2", "locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 3[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (515.6ms)
+Completed 200 OK in 828ms (Views: 703.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en?page=1" for 127.0.0.1 at Fri Aug 12 09:13:33 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"page"=>"1", "locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (312.5ms)
+Completed 200 OK in 656ms (Views: 500.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:14:07 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by title[0m
+Rendered store/show_search.html.erb within layouts/application (421.9ms)
+Completed   in 844ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<Array:0x470cfb8>):
+    33:   </div>
+    34: <% end %>
+    35: 
+    36: <p><%= will_paginate @products %></p>
+  app/views/store/show_search.html.erb:36:in `_app_views_store_show_search_html_erb___799442811_37216692_0'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (375.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (546.9ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:16:04 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE (title like %'w'% or description like %'w'%) ORDER BY title, title asc LIMIT 3 OFFSET 0[0m
+SQLite3::SQLException: near "%": syntax error: SELECT  "products".* FROM "products" WHERE (title like %'w'% or description like %'w'%) ORDER BY title, title asc LIMIT 3 OFFSET 0
+Completed   in 141ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "%": syntax error: SELECT  "products".* FROM "products" WHERE (title like %'w'% or description like %'w'%) ORDER BY title, title asc LIMIT 3 OFFSET 0):
+  app/controllers/store_controller.rb:26:in `show_search'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (93.8ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (250.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:18:14 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE (title like '%'w'%'or description like '%'w'%') ORDER BY title, title asc LIMIT 3 OFFSET 0[0m
+SQLite3::SQLException: near "w": syntax error: SELECT  "products".* FROM "products" WHERE (title like '%'w'%'or description like '%'w'%') ORDER BY title, title asc LIMIT 3 OFFSET 0
+Completed   in 172ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "w": syntax error: SELECT  "products".* FROM "products" WHERE (title like '%'w'%'or description like '%'w'%') ORDER BY title, title asc LIMIT 3 OFFSET 0):
+  app/controllers/store_controller.rb:26:in `show_search'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (453.1ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (593.8ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:20:14 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (15.6ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE (title like %'w'%or description like %'w'%) ORDER BY title, title asc LIMIT 2 OFFSET 0[0m
+SQLite3::SQLException: near "%": syntax error: SELECT  "products".* FROM "products" WHERE (title like %'w'%or description like %'w'%) ORDER BY title, title asc LIMIT 2 OFFSET 0
+Completed   in 125ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "%": syntax error: SELECT  "products".* FROM "products" WHERE (title like %'w'%or description like %'w'%) ORDER BY title, title asc LIMIT 2 OFFSET 0):
+  app/controllers/store_controller.rb:26:in `show_search'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (93.8ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (234.4ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:20:21 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE (title like %'w'%or description like %'w'%) ORDER BY title, title asc LIMIT 2 OFFSET 0[0m
+SQLite3::SQLException: near "%": syntax error: SELECT  "products".* FROM "products" WHERE (title like %'w'%or description like %'w'%) ORDER BY title, title asc LIMIT 2 OFFSET 0
+Completed   in 141ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "%": syntax error: SELECT  "products".* FROM "products" WHERE (title like %'w'%or description like %'w'%) ORDER BY title, title asc LIMIT 2 OFFSET 0):
+  app/controllers/store_controller.rb:26:in `show_search'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (218.8ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (343.8ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:22:13 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE (title like '%'w'%' or description like '%'w'%') ORDER BY title, title asc LIMIT 2 OFFSET 0[0m
+SQLite3::SQLException: near "w": syntax error: SELECT  "products".* FROM "products" WHERE (title like '%'w'%' or description like '%'w'%') ORDER BY title, title asc LIMIT 2 OFFSET 0
+Completed   in 141ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "w": syntax error: SELECT  "products".* FROM "products" WHERE (title like '%'w'%' or description like '%'w'%') ORDER BY title, title asc LIMIT 2 OFFSET 0):
+  app/controllers/store_controller.rb:26:in `show_search'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (78.1ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (234.4ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:22:55 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+       end      
+          ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.3ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:23:26 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+       end      
+          ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:24:17 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+       end      
+          ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:24:26 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+       end      
+          ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.2ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:25:10 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+       end      
+          ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.2ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:25:19 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:30: syntax error, unexpected kEND
+     end 
+        ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (140.6ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:25:43 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+        end    
+           ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (140.6ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:27:03 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.3ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:27:31 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (140.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 12 09:27:39 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (140.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 12 09:28:02 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:28: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (125.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 12 09:28:07 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:28: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (125.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 12 09:28:14 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:28: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (171.9ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (312.5ms)
+
+
+Started GET "/register" for 127.0.0.1 at Fri Aug 12 09:28:25 +0800 2011
+  Processing by UsersController#newuser as HTML
+Rendered users/_register.html.erb (78.1ms)
+Rendered users/newuser.html.erb within layouts/application (203.1ms)
+Completed 200 OK in 484ms (Views: 421.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 12 09:28:35 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:28: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 12 09:28:50 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:28: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (140.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 12 09:29:25 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:27: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 12 09:29:39 +0800 2011
+  Processing by StoreController#index as HTML
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (625.0ms)
+Completed 200 OK in 922ms (Views: 796.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:30:02 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:27: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (140.6ms)
+
+
+Started GET "/" for 172.18.181.67 at Fri Aug 12 09:30:26 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:27: syntax error, unexpected kEND
+      end    
+         ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (281.2ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:30:33 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/store_controller.rb:29: syntax error, unexpected kEND
+     end  
+        ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.2ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:33:25 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, title asc LIMIT 2 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (359.4ms)
+Completed 200 OK in 812ms (Views: 640.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:37:40 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE (title like 'w' or description like 'w') ORDER BY title, title asc LIMIT 2 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (265.6ms)
+Completed 200 OK in 672ms (Views: 515.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:38:31 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+Completed   in 172ms
+
+ArgumentError (malformed format string - %w):
+  app/controllers/store_controller.rb:19:in `show_search'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (109.4ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (265.6ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:39:17 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+Completed   in 156ms
+
+ArgumentError (malformed format string - %w):
+  app/controllers/store_controller.rb:19:in `show_search'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (93.8ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (234.4ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:39:29 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (15.6ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+Completed   in 422ms
+
+ArgumentError (malformed format string - %w):
+  app/controllers/store_controller.rb:19:in `show_search'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (78.1ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (250.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:50:08 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (15.6ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by title[0m
+Rendered store/show_search.html.erb within layouts/application (125.0ms)
+Completed   in 516ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<Array:0x469cb90>):
+    33:   </div>
+    34: <% end %>
+    35: 
+    36: <p><%= will_paginate @products %></p>
+  app/views/store/show_search.html.erb:36:in `_app_views_store_show_search_html_erb___799442811_37005264_0'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (93.8ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (250.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 09:51:04 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (15.6ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by title[0m
+  [1m[35mSQL (15.6ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (593.8ms)
+Completed 200 OK in 969ms (Views: 812.5ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/show_search?locale=en&order=price&search_name=w" for 127.0.0.1 at Fri Aug 12 09:51:09 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"order"=>"price", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  select* from Products where title like '%w%' or description like '%w%' order by price
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (453.1ms)
+Completed 200 OK in 828ms (Views: 687.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/show_search?locale=en&order=title&search_name=w" for 127.0.0.1 at Fri Aug 12 09:51:12 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"order"=>"title", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by title[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (312.5ms)
+Completed 200 OK in 625ms (Views: 500.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 12 09:54:32 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (421.9ms)
+Completed 200 OK in 891ms (Views: 703.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en?page=2" for 127.0.0.1 at Fri Aug 12 09:54:37 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"page"=>"2", "locale"=>"en"}
+  [1m[36mProduct Load (15.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 3[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (312.5ms)
+Completed 200 OK in 625ms (Views: 500.0ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/en?page=1" for 127.0.0.1 at Fri Aug 12 09:54:46 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"page"=>"1", "locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (671.9ms)
+Completed 200 OK in 1000ms (Views: 843.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 10:00:45 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by title[0m
+  [1m[35mSQL (15.6ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (687.5ms)
+Completed 200 OK in 1125ms (Views: 937.5ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 10:03:30 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  select* from Products where title like '%w%' or description like '%w%' order by title
+ERROR: compiling _app_views_layouts_application_html_erb___38531398_37102968_0 RAISED compile error
+D:/depot2/depot2/depot2/app/views/layouts/application.html.erb:29: syntax error, unexpected '<'
+				<%= link_to user.name 
+				 ^
+D:/depot2/depot2/depot2/app/views/layouts/application.html.erb:31: syntax error, unexpected '(', expecting kEND
+...			');@output_buffer.append= ( link_to 'Login', login_path,:...
+			                           ^
+D:/depot2/depot2/depot2/app/views/layouts/application.html.erb:31: syntax error, unexpected ')', expecting kEND
+..., login_path,:medthod => :new);@output_buffer.safe_concat('
+                              ^
+Function body:           def _app_views_layouts_application_html_erb___38531398_37102968_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "layouts/application";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('﻿<!-- START:head -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pragprog Books Online Store</title>
+<!-- START:stylesheet -->
+  ');@output_buffer.append= ( stylesheet_link_tag "scaffold" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( stylesheet_link_tag "depot", :media => "all" );@output_buffer.safe_concat('<!-- <label id="code.slt"/> -->
+<!-- END:stylesheet -->
+  ');@output_buffer.append= ( javascript_include_tag "jquery", :type => "text/javascript");@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( javascript_include_tag "enlarge", :type => "text/javascript");@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( javascript_include_tag :defaults );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( csrf_meta_tag );@output_buffer.safe_concat('<!-- <label id="code.csrf"/> -->
+</head>
+<body id="store">
+	<div id="banner">		
+		');@output_buffer.append=  form_tag store_path,:class => 'locale' do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('		');@output_buffer.append= ( select_tag 'set_locale',options_for_select(LANGUAGES,I18n.locale.to_s),:onchange => 'this.form.submit()' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('		');@output_buffer.append= ( submit_tag 'submit');@output_buffer.safe_concat('
+');@output_buffer.safe_concat('		');@output_buffer.append= ( javascript_tag "$$('.locale input').each(Element.hide)");@output_buffer.safe_concat('
+');		 end 
+@output_buffer.safe_concat('		');@output_buffer.append= ( image_tag("logo.png") );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('		');@output_buffer.append= ( @page_title ||t('.title').html_safe);@output_buffer.safe_concat('<!-- <label id="code.depot.e.title"/> -->
+	</div>
+	<div id="columns">		
+		<div id="side">
+');			if session[:user_id]
+				 user = User.find(session[:user_id])%
+				<%= link_to user.name 
+			else
+@output_buffer.safe_concat('				');@output_buffer.append= ( link_to 'Login', login_path,:medthod => :new);@output_buffer.safe_concat('
+');			end
+@output_buffer.safe_concat('			');@output_buffer.append= ( link_to 'Register',register_path,:medthod => :newuser );@output_buffer.safe_concat('<br/>
+			');@output_buffer.append=  form_tag show_search_url do@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	  		<fieldset>
+	  			<legend class="search">Search</legend>
+  					');@output_buffer.append= ( text_field_tag :search_name,nil);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	  				');@output_buffer.append= ( submit_tag "Go and Try");@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	  			</fieldset>
+');    		end
+@output_buffer.safe_concat('
+			<div id="cart">
+');				 if @cart 
+@output_buffer.safe_concat('			       ');@output_buffer.append=  hidden_div_if(@cart.line_items.empty?,:id=>"cart") do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('			       ');@output_buffer.append= ( render @cart );@output_buffer.safe_concat('
+');			        end 
+		         end 
+@output_buffer.safe_concat('			</div>			
+			<p></p>
+			');@output_buffer.append= ( link_to t('.home'),store_path );@output_buffer.safe_concat('<br />			
+			<a href="http://www..../fag">');@output_buffer.append= ( t('.questions') );@output_buffer.safe_concat('</a><br />
+			');@output_buffer.append= ( link_to t('.news'),messages_path );@output_buffer.safe_concat('<br />				
+			<a href="http://www..../contact">');@output_buffer.append= ( t('.contact') );@output_buffer.safe_concat('</a><br />	
+			<a href="/helpshell/admin.htm">Adminstrator Help</a><br/>	
+			<a href="/helpshell/user.htm">User Help</a>><br/>	
+			
+');			 if session[:user_id] && session[:user_type] == 1
+@output_buffer.safe_concat('				<br />
+				');@output_buffer.append= ( link_to 'Favourites', favourites_path);@output_buffer.safe_concat('<br/>
+				');@output_buffer.append= ( link_to 'MyOrders',userorders_path);@output_buffer.safe_concat('<br />	
+				');@output_buffer.append= ( link_to 'My Order Record',userorderrecord_path);@output_buffer.safe_concat('<br/>
+				<br/>
+				');@output_buffer.append= ( link_to 'Orders',orders_path );@output_buffer.safe_concat('<br/>
+				');@output_buffer.append= ( link_to 'Products', products_path );@output_buffer.safe_concat('<br/>
+				');@output_buffer.append= ( link_to 'Users',users_path );@output_buffer.safe_concat('<br/>
+				');@output_buffer.append= ( link_to 'Orders Record',ordersrecord_path);@output_buffer.safe_concat('<br/>
+				');@output_buffer.append= ( link_to 'Comments Management',comments_path);@output_buffer.safe_concat('<br/>				
+				<br/>
+				');@output_buffer.append= ( button_to 'Logout',logout_path,:method => :delete );@output_buffer.safe_concat('
+');			 elsif session[:user_id] && session[:user_type] == 2
+@output_buffer.safe_concat('				<br />
+				');@output_buffer.append= ( link_to 'Favourites', favourites_path);@output_buffer.safe_concat('<br/>
+				');@output_buffer.append= ( link_to 'MyOrders',userorders_path);@output_buffer.safe_concat('<br />	
+				');@output_buffer.append= ( link_to 'My Order Record',userorderrecord_path);@output_buffer.safe_concat('<br/>
+				<br/>
+				');@output_buffer.append= ( button_to 'Logout',logout_path,:method => :delete );@output_buffer.safe_concat('
+');			 end 
+@output_buffer.safe_concat('		</div>
+		<div id="main">		
+			');@output_buffer.append= ( yield );@output_buffer.safe_concat('<!-- <label id="code.depot.e.include"/> -->
+		</div>
+	</div>
+</body>
+</html>
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: D:/depot2/depot2/depot2/app/views/layouts/application.html.erb:88:in `compile'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/template.rb:134:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:54:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/template.rb:127:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/layouts.rb:80:in `_render_layout'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:62:in `_render_template'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:56:in `_render_template'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:26:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:115:in `_render_template'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:93:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:17:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+d:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:39:in `render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:14:in `default_render'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:6:in `send_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:150:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:11:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:18:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:441:in `_run__849683412__process_action__157878777__callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `send'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `send'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `run_callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:17:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rescue.rb:17:in `process_action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:119:in `process'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:41:in `process'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal.rb:138:in `dispatch'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_controller/metal.rb:178:in `action'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:27:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:103:in `optimized_each'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:493:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/head.rb:14:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/methodoverride.rb:24:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/flash.rb:182:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:32:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:12:in `cache'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:31:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/sendfile.rb:107:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/rack/logger.rb:13:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/runtime.rb:17:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `synchronize'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/static.rb:30:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/application.rb:168:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/application.rb:77:in `send'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/application.rb:77:in `method_missing'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/rack/log_tailer.rb:14:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/content_length.rb:13:in `call'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:52:in `service'
+d:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+d:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+d:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:13:in `run'
+d:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/server.rb:217:in `start'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands/server.rb:65:in `start'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands.rb:30
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands.rb:27:in `tap'
+d:/Ruby187/lib/ruby/gems/1.8/gems/railties-3.0.7/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered store/show_search.html.erb within layouts/application (296.9ms)
+Completed   in 656ms
+
+ActionView::Template::Error (compile error
+D:/depot2/depot2/depot2/app/views/layouts/application.html.erb:29: syntax error, unexpected '<'
+				<%= link_to user.name 
+				 ^
+D:/depot2/depot2/depot2/app/views/layouts/application.html.erb:31: syntax error, unexpected '(', expecting kEND
+...			');@output_buffer.append= ( link_to 'Login', login_path,:...
+			                           ^
+D:/depot2/depot2/depot2/app/views/layouts/application.html.erb:31: syntax error, unexpected ')', expecting kEND
+..., login_path,:medthod => :new);@output_buffer.safe_concat('
+                              ^):
+    26: 		<div id="side">
+    27: 			<%if session[:user_id]%>
+    28: 				<% user = User.find(session[:user_id])%
+    29: 				<%= link_to user.name %>
+    30: 			<%else%>
+    31: 				<%= link_to 'Login', login_path,:medthod => :new%>
+    32: 			<%end%>
+  app/views/layouts/application.html.erb:88:in `compile'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (109.4ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (265.6ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 10:03:45 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  select* from Products where title like '%w%' or description like '%w%' order by title
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (578.1ms)
+Completed 200 OK in 859ms (Views: 750.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Fri Aug 12 10:03:49 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (62.5ms)
+Completed 200 OK in 391ms (Views: 375.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Fri Aug 12 10:04:00 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"qinjinghui", "commit"=>"Login", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (15.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" = 'qinjinghui' LIMIT 1
+Redirected to http://localhost:3000/admin?locale=en
+Completed 302 Found in 719ms
+
+
+Started GET "/admin?locale=en" for 127.0.0.1 at Fri Aug 12 10:04:01 +0800 2011
+  Processing by AdminController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mSQL (15.6ms)[0m  SELECT COUNT(*) FROM "orders"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered admin/index.html.erb within layouts/application (109.4ms)
+Completed 200 OK in 438ms (Views: 296.9ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/admin?locale=en" for 127.0.0.1 at Fri Aug 12 10:04:53 +0800 2011
+  Processing by AdminController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered admin/index.html.erb within layouts/application (109.4ms)
+Completed 200 OK in 438ms (Views: 312.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/admin?locale=en" for 127.0.0.1 at Fri Aug 12 10:04:57 +0800 2011
+  Processing by AdminController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "orders"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered admin/index.html.erb within layouts/application (125.0ms)
+Completed 200 OK in 641ms (Views: 328.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 10:21:05 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"123", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%123%' or description like '%123%' order by title[0m
+Rendered store/show_search.html.erb within layouts/application (343.8ms)
+Completed   in 766ms
+
+ActionView::Template::Error (undefined method `will_paginate_remote' for #<#<Class:0x467cb38>:0x467b968>):
+    33:   </div>
+    34: <% end %>
+    35: 
+    36: <%= will_paginate_remote (@products,:update=>'products',:url=>nil,:prev_label=>'上一页',:next_label=>'下一页',:separator=>" | ")%>
+  app/views/store/show_search.html.erb:36:in `_app_views_store_show_search_html_erb___799442811_36951048_0'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.2ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (187.5ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 10:30:49 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"123", "locale"=>"en"}
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (15.6ms)[0m  [1mselect* from Products where title like '%123%' or description like '%123%' order by title[0m
+Rendered store/show_search.html.erb within layouts/application (500.0ms)
+Completed   in 1094ms
+
+ActionView::Template::Error (undefined method `will_paginate_remote' for #<#<Class:0x4847d90>:0x4846aa0>):
+    33:   </div>
+    34: <% end %>
+    35: 
+    36: <%= will_paginate_remote (@products,:update=>'products',:url=>nil,:prev_label=>'上一页',:next_label=>'下一页',:separator=>" | ")%>
+  app/views/store/show_search.html.erb:36:in `_app_views_store_show_search_html_erb___799442811_37891248_0'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (62.5ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (187.5ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 10:31:51 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"123", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%123%' or description like '%123%' order by title[0m
+Rendered store/show_search.html.erb within layouts/application (250.0ms)
+Completed   in 719ms
+
+ActionView::Template::Error (undefined method `will_paginate_remote' for #<#<Class:0x4885c98>:0x4884738>):
+    35:   </div>
+    36: <% end %>
+    37: 
+    38: <%= will_paginate_remote (@products,:update=>'products',:url=>nil,:prev_label=>'上一页',:next_label=>'下一页',:separator=>" | ")%>
+  app/views/store/show_search.html.erb:38:in `_app_views_store_show_search_html_erb___799442811_38017452_0'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (62.5ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (250.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 12 11:11:38 +0800 2011
+  Processing by StoreController#index as 
+  [1m[35mProduct Load (31.2ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mAREL (46.9ms)[0m  INSERT INTO "carts" ("updated_at", "created_at") VALUES ('2011-08-12 03:11:41.906250', '2011-08-12 03:11:41.906250')
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 114)[0m
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/index.html.erb within layouts/application (1281.2ms)
+Completed 200 OK in 4828ms (Views: 2468.8ms | ActiveRecord: 109.4ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 12 11:12:28 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "search_name"=>"123", "locale"=>"en"}
+  [1m[35mCart Load (15.6ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%123%' or description like '%123%' order by title[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/show_search.html.erb within layouts/application (796.9ms)
+Completed 200 OK in 1219ms (Views: 1062.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 12 11:12:40 +0800 2011
+  Processing by StoreController#index as 
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "carts" ("created_at", "updated_at") VALUES ('2011-08-12 03:12:41.062500', '2011-08-12 03:12:41.062500')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 115)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (375.0ms)
+Completed 200 OK in 1609ms (Views: 1203.1ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (234.4ms)[0m  CREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (171.9ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "user_id" integer, "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (250.0ms)[0m  CREATE TABLE "favourites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (218.8ms)[0m  CREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "cart_id" integer, "created_at" datetime, "updated_at" datetime, "quantity" integer DEFAULT 1, "order_id" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (203.1ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (312.5ms)[0m  CREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "orderstatus" integer) 
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (265.6ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal, "created_at" datetime, "updated_at" datetime, "inventory" integer DEFAULT 0, "sales" integer DEFAULT 0, "author" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (390.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime, "user_type" integer DEFAULT 1) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (328.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (250.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (218.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811071055')[0m
+  [1m[35mSQL (125.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110718031907')
+  [1m[36mSQL (250.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719012246')[0m
+  [1m[35mSQL (203.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719012747')
+  [1m[36mSQL (109.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719071636')[0m
+  [1m[35mSQL (281.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719072504')
+  [1m[36mSQL (187.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110725054659')[0m
+  [1m[35mSQL (281.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110725054830')
+  [1m[36mSQL (203.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110801005912')[0m
+  [1m[35mSQL (156.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110808040208')
+  [1m[36mSQL (171.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809005752')[0m
+  [1m[35mSQL (125.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110809064414')
+  [1m[36mSQL (156.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809082730')[0m
+  [1m[35mSQL (390.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810053343')
+  [1m[36mSQL (109.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110810062858')[0m
+  [1m[35mSQL (140.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810073713')
+  [1m[36mSQL (78.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811050033')[0m
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (125.0ms)[0m  CREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (62.5ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "user_id" integer, "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (62.5ms)[0m  CREATE TABLE "favourites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "cart_id" integer, "created_at" datetime, "updated_at" datetime, "quantity" integer DEFAULT 1, "order_id" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (62.5ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "orderstatus" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal, "created_at" datetime, "updated_at" datetime, "inventory" integer DEFAULT 0, "sales" integer DEFAULT 0, "author" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime, "user_type" integer DEFAULT 1) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (78.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811071055')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110718031907')
+  [1m[36mSQL (78.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719012246')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719012747')
+  [1m[36mSQL (78.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719071636')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719072504')
+  [1m[36mSQL (62.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110725054659')[0m
+  [1m[35mSQL (62.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110725054830')
+  [1m[36mSQL (62.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110801005912')[0m
+  [1m[35mSQL (62.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110808040208')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809005752')[0m
+  [1m[35mSQL (109.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110809064414')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809082730')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810053343')
+  [1m[36mSQL (78.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110810062858')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810073713')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811050033')[0m
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (125.0ms)[0m  CREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "user_id" integer, "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE "favourites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "cart_id" integer, "created_at" datetime, "updated_at" datetime, "quantity" integer DEFAULT 1, "order_id" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "orderstatus" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal, "created_at" datetime, "updated_at" datetime, "inventory" integer DEFAULT 0, "sales" integer DEFAULT 0, "author" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime, "user_type" integer DEFAULT 1) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (78.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811071055')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110718031907')
+  [1m[36mSQL (78.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719012246')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719012747')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719071636')[0m
+  [1m[35mSQL (93.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719072504')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110725054659')[0m
+  [1m[35mSQL (93.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110725054830')
+  [1m[36mSQL (78.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110801005912')[0m
+  [1m[35mSQL (93.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110808040208')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809005752')[0m
+  [1m[35mSQL (109.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110809064414')
+  [1m[36mSQL (78.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809082730')[0m
+  [1m[35mSQL (93.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810053343')
+  [1m[36mSQL (109.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110810062858')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810073713')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811050033')[0m
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 12 11:41:03 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (31.2ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mUser Load (15.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mSQL (15.6ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/index.html.erb within layouts/application (1734.4ms)
+Completed 200 OK in 3266ms (Views: 2656.2ms | ActiveRecord: 62.5ms)
+
+
+Started POST "/en/line_items?product_id=8" for 127.0.0.1 at Fri Aug 12 11:41:24 +0800 2011
+  Processing by LineItemsController#create as JS
+  Parameters: {"product_id"=>"8", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "locale"=>"en"}
+  [1m[36mCart Load (15.6ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."product_id" = 8 AND ("line_items".cart_id = 113) LIMIT 1[0m
+  [1m[35mAREL (15.6ms)[0m  INSERT INTO "line_items" ("cart_id", "quantity", "updated_at", "order_id", "product_id", "created_at") VALUES (113, 1, '2011-08-12 03:41:26.375000', NULL, 8, '2011-08-12 03:41:26.375000')
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 113)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (343.8ms)
+Rendered carts/_cart.html.erb (750.0ms)
+  [1m[35mSQL (0.0ms)[0m  SELECT SUM("line_items"."quantity") AS sum_id FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered line_items/create.js.rjs (1156.2ms)
+Completed 200 OK in 4406ms (Views: 3171.9ms | ActiveRecord: 46.9ms)
+
+
+Started POST "/en/line_items?product_id=8" for 127.0.0.1 at Fri Aug 12 11:41:30 +0800 2011
+  Processing by LineItemsController#create as JS
+  Parameters: {"product_id"=>"8", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."product_id" = 8 AND ("line_items".cart_id = 113) LIMIT 1[0m
+  [1m[35mAREL (31.2ms)[0m  UPDATE "line_items" SET "updated_at" = '2011-08-12 03:41:35.718750', "quantity" = 2 WHERE "line_items"."id" = 102
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 113)
+  [1m[36mProduct Load (15.6ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (109.4ms)
+Rendered carts/_cart.html.erb (343.8ms)
+  [1m[35mSQL (0.0ms)[0m  SELECT SUM("line_items"."quantity") AS sum_id FROM "line_items" WHERE ("line_items".cart_id = 113)
+Rendered line_items/create.js.rjs (640.6ms)
+Completed 200 OK in 6219ms (Views: 2921.9ms | ActiveRecord: 62.5ms)
+
+
+Started POST "/logout?locale=en" for 127.0.0.1 at Fri Aug 12 11:51:09 +0800 2011
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "locale"=>"en"}
+Redirected to http://localhost:3000/en
+Completed 302 Found in 16ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 12 11:51:10 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (15.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 113)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (46.9ms)
+Rendered carts/_cart.html.erb (265.6ms)
+Rendered store/index.html.erb within layouts/application (1562.5ms)
+Completed 200 OK in 2141ms (Views: 1906.2ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/en/line_items/102" for 127.0.0.1 at Fri Aug 12 11:51:21 +0800 2011
+  Processing by LineItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "id"=>"102", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/login?locale=en
+Completed 302 Found in 406ms
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Fri Aug 12 11:51:22 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (125.0ms)
+Completed 200 OK in 484ms (Views: 468.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 12 11:53:21 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (15.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 113)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (109.4ms)
+Rendered carts/_cart.html.erb (203.1ms)
+Rendered store/index.html.erb within layouts/application (843.8ms)
+Completed 200 OK in 1297ms (Views: 1109.4ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/en/line_items/102" for 127.0.0.1 at Fri Aug 12 11:53:29 +0800 2011
+  Processing by LineItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "id"=>"102", "locale"=>"en"}
+  [1m[35mLineItem Load (15.6ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."id" = 102 LIMIT 1
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = 102[0m
+Redirected to http://localhost:3000/en
+Completed 302 Found in 375ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 12 11:53:30 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (125.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (1671.9ms)
+Completed 200 OK in 3297ms (Views: 2406.2ms | ActiveRecord: 156.2ms)
+
+
+Started POST "/en" for 127.0.0.1 at Fri Aug 12 16:21:29 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"set_locale"=>"es", "authenticity_token"=>"qe9aG8HFd0Fkxhjk+3N9bzE0yYNf+9FTpI1cKpnqlz0=", "utf8"=>"✓", "locale"=>"en"}
+Redirected to http://localhost:3000/es
+Completed 302 Found in 0ms
+
+
+Started GET "/es" for 127.0.0.1 at Fri Aug 12 16:21:30 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"es"}
+  [1m[35mProduct Load (15.6ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (15.6ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 113 LIMIT 1
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 113)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (937.5ms)
+Completed 200 OK in 2031ms (Views: 1625.0ms | ActiveRecord: 46.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Aug 15 09:04:59 +0800 2011
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (15.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "carts" ("updated_at", "created_at") VALUES ('2011-08-15 01:05:03.875000', '2011-08-15 01:05:03.875000')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (1562.5ms)
+Completed 200 OK in 2375ms (Views: 1765.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Mon Aug 15 09:05:24 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 344ms (Views: 328.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Mon Aug 15 09:05:33 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"qinjinghui", "commit"=>"Login", "authenticity_token"=>"konlsr+fSWoXGGIxn0PHa96R6jcT9jEViECCwVerHnc=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" = 'qinjinghui' LIMIT 1
+Redirected to http://localhost:3000/admin?locale=en
+Completed 302 Found in 516ms
+
+
+Started GET "/admin?locale=en" for 127.0.0.1 at Mon Aug 15 09:05:34 +0800 2011
+  Processing by AdminController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mSQL (15.6ms)[0m  SELECT COUNT(*) FROM "orders"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered admin/index.html.erb within layouts/application (156.2ms)
+Completed 200 OK in 516ms (Views: 375.0ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:05:39 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/ordersrecord.html.erb within layouts/application (375.0ms)
+Completed 200 OK in 672ms (Views: 546.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/orders/228" for 127.0.0.1 at Mon Aug 15 09:05:44 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/228"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (15.6ms)
+
+
+Started POST "/en/orders/228" for 127.0.0.1 at Mon Aug 15 09:06:32 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/228"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started POST "/en/orders/228" for 127.0.0.1 at Mon Aug 15 09:06:52 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/228"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started POST "/en/orders/228" for 127.0.0.1 at Mon Aug 15 09:07:37 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/228"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started POST "/en/orders/228" for 127.0.0.1 at Mon Aug 15 09:08:22 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/228"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started POST "/en/orders/227" for 127.0.0.1 at Mon Aug 15 09:08:57 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/227"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started POST "/en/orders/228" for 127.0.0.1 at Mon Aug 15 09:09:24 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/228"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started POST "/en/orders/228" for 127.0.0.1 at Mon Aug 15 09:11:55 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/228"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started POST "/en/orders/228" for 127.0.0.1 at Mon Aug 15 09:16:30 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/228"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started POST "/en/orders/228" for 127.0.0.1 at Mon Aug 15 09:18:25 +0800 2011
+
+ActionController::RoutingError (No route matches "/en/orders/228"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:18:30 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)
+Rendered orders/ordersrecord.html.erb within layouts/application (140.6ms)
+Completed   in 422ms
+
+ActionView::Template::Error (No route matches {:controller=>"orders", :action=>"deleteonerecord", :locale=>:en, :id=>#<Order id: 228, name: "1234567", address: "1213", email: "250936666@qq.com", pay_type: "Check", created_at: "2011-08-10 06:13:34", updated_at: "2011-08-10 06:22:59", user_name: "qinjinghui", orderstatus: 1>}):
+    30:     </td>
+    31:     <td><%= link_to 'Show', order %></td>
+    32:    <!--  <td><%= link_to 'Edit', edit_order_path(order) %></td> -->
+    33:     <td><%= link_to 'Destroy',{:controller => "orders", :action => "deleteonerecord", :id => order} %></td>
+    34:   </tr>
+    35: <% end %>
+    36: 
+  app/views/orders/ordersrecord.html.erb:33:in `_app_views_orders_ordersrecord_html_erb___570636653_37214184_0'
+  app/views/orders/ordersrecord.html.erb:16:in `each'
+  app/views/orders/ordersrecord.html.erb:16:in `_app_views_orders_ordersrecord_html_erb___570636653_37214184_0'
+  app/controllers/orders_controller.rb:31:in `ordersrecord'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (62.5ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (187.5ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:19:43 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (15.6ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (625.0ms)
+Completed 200 OK in 906ms (Views: 796.9ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/destroyOneOrder?id=228&locale=en" for 127.0.0.1 at Mon Aug 15 09:19:49 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"id"=>"228", "locale"=>"destroyOneOrder"}
+destroyOneOrder translation not available
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)[0m
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/index.html.erb within layouts/application (609.4ms)
+Completed 200 OK in 969ms (Views: 828.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:20:06 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/ordersrecord.html.erb within layouts/application (281.2ms)
+Completed 200 OK in 734ms (Views: 453.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=228&locale=en" for 127.0.0.1 at Mon Aug 15 09:20:11 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"id"=>"228", "locale"=>"destroyOneOrder"}
+destroyOneOrder translation not available
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (468.8ms)
+Completed 200 OK in 844ms (Views: 656.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:20:15 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (15.6ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (437.5ms)
+Completed 200 OK in 734ms (Views: 625.0ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:20:22 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (609.4ms)
+Completed 200 OK in 922ms (Views: 781.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=228&locale=en" for 127.0.0.1 at Mon Aug 15 09:21:01 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"id"=>"228", "locale"=>"destroyOneOrder"}
+destroyOneOrder translation not available
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (406.2ms)
+Completed 200 OK in 891ms (Views: 578.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=228&locale=en" for 127.0.0.1 at Mon Aug 15 09:23:18 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"id"=>"228", "locale"=>"destroyOneOrder"}
+destroyOneOrder translation not available
+  [1m[36mProduct Load (46.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1
+  [1m[36mUser Load (15.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (1203.1ms)
+Completed 200 OK in 2109ms (Views: 1375.0ms | ActiveRecord: 62.5ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:24:06 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (15.6ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (703.1ms)
+Completed 200 OK in 1078ms (Views: 890.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/destroyOneOrder?id=228&locale=en" for 127.0.0.1 at Mon Aug 15 09:24:10 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"id"=>"228", "locale"=>"destroyOneOrder"}
+destroyOneOrder translation not available
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)[0m
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/index.html.erb within layouts/application (734.4ms)
+Completed 200 OK in 1172ms (Views: 890.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:24:34 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/ordersrecord.html.erb within layouts/application (437.5ms)
+Completed 200 OK in 859ms (Views: 625.0ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/destroyOneOrder?id=228&locale=en" for 127.0.0.1 at Mon Aug 15 09:25:02 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"id"=>"228", "locale"=>"destroyOneOrder"}
+destroyOneOrder translation not available
+  [1m[35mProduct Load (15.6ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (906.2ms)
+Completed 200 OK in 1250ms (Views: 1078.1ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:25:07 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (15.6ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (359.4ms)
+Completed 200 OK in 734ms (Views: 531.2ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:26:10 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (859.4ms)
+Completed 200 OK in 1234ms (Views: 1015.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:26:27 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (15.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (15.6ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (453.1ms)
+Completed 200 OK in 875ms (Views: 625.0ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:26:36 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (281.3ms)
+Completed 200 OK in 578ms (Views: 437.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=228&locale=en" for 127.0.0.1 at Mon Aug 15 09:26:38 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"228", "locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 228 LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 228)[0m
+  [1m[35mAREL (15.6ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = 90
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = 91[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = 92
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "orders" WHERE "orders"."id" = 228[0m
+Redirected to http://localhost:3000/en/orders
+Completed 302 Found in 16922ms
+
+
+Started GET "/en/orders" for 127.0.0.1 at Mon Aug 15 09:26:55 +0800 2011
+  Processing by OrdersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus=0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/index.html.erb within layouts/application (234.4ms)
+Completed 200 OK in 812ms (Views: 578.1ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:27:03 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (421.9ms)
+Completed 200 OK in 734ms (Views: 593.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=227&locale=en" for 127.0.0.1 at Mon Aug 15 09:27:09 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"227", "locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 227 LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 227)[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = 89
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "orders" WHERE "orders"."id" = 227[0m
+Redirected to http://localhost:3000/en/orders
+Completed 302 Found in 422ms
+
+
+Started GET "/en/orders" for 127.0.0.1 at Mon Aug 15 09:27:10 +0800 2011
+  Processing by OrdersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus=0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/index.html.erb within layouts/application (375.0ms)
+Completed 200 OK in 1641ms (Views: 734.4ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:27:16 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (437.5ms)
+Completed 200 OK in 750ms (Views: 609.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=226&locale=en" for 127.0.0.1 at Mon Aug 15 09:27:22 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"226", "locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 226 LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 226)[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = 88
+  [1m[36mAREL (15.6ms)[0m  [1mDELETE FROM "orders" WHERE "orders"."id" = 226[0m
+Redirected to http://localhost:3000/en/orders
+Completed 302 Found in 406ms
+
+
+Started GET "/en/orders" for 127.0.0.1 at Mon Aug 15 09:27:23 +0800 2011
+  Processing by OrdersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (15.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus=0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/index.html.erb within layouts/application (234.4ms)
+Completed 200 OK in 1422ms (Views: 750.0ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:27:28 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (15.6ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (296.9ms)
+Completed 200 OK in 797ms (Views: 468.8ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/destroyOneOrder?id=225&locale=en" for 127.0.0.1 at Mon Aug 15 09:28:47 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"225", "locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 225 LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 225)[0m
+  [1m[35mAREL (15.6ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = 87
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "orders" WHERE "orders"."id" = 225[0m
+Completed   in 578ms
+
+NameError (undefined local variable or method `ordersrecord_order_url' for #<OrdersController:0x564fd20>):
+  app/controllers/orders_controller.rb:173:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (281.3ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (593.8ms)
+
+
+Started GET "/destroyOneOrder?id=225&locale=en" for 127.0.0.1 at Mon Aug 15 09:29:09 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"225", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 225 LIMIT 1[0m
+Completed   in 125ms
+
+ActiveRecord::RecordNotFound (Couldn't find Order with ID=225):
+  app/controllers/orders_controller.rb:170:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.2ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:29:16 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mSQL (15.6ms)[0m  SELECT COUNT(*) FROM "orders" WHERE (orderstatus<>0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/ordersrecord.html.erb within layouts/application (453.1ms)
+Completed 200 OK in 828ms (Views: 656.2ms | ActiveRecord: 46.9ms)
+
+
+Started GET "/destroyOneOrder?id=224&locale=en" for 127.0.0.1 at Mon Aug 15 09:29:21 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"224", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 224 LIMIT 1[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 224)
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = 86[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = 224
+Completed   in 812ms
+
+ActionView::MissingTemplate (Missing template orders/destroyOneOrder with {:locale=>[:en, :en], :formats=>[:html], :handlers=>[:rjs, :rhtml, :erb, :rxml, :builder]} in view paths "D:/depot2/depot2/depot2/app/views"):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:29:34 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (15.6ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/ordersrecord.html.erb within layouts/application (468.8ms)
+Completed 200 OK in 781ms (Views: 625.0ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/destroyOneOrder?id=223&locale=en" for 127.0.0.1 at Mon Aug 15 09:30:43 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"223", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 223 LIMIT 1[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 223)
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = 85[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = 223
+Redirected to http://localhost:3000/destroyOneOrder?locale=en
+Completed 302 Found in 469ms
+
+
+Started GET "/destroyOneOrder?locale=en" for 127.0.0.1 at Mon Aug 15 09:30:44 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Completed   in 578ms
+
+ActiveRecord::RecordNotFound (Couldn't find Order without an ID):
+  app/controllers/orders_controller.rb:170:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.2ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (218.8ms)
+
+
+Started GET "/destroyOneOrder?id=223&locale=en" for 127.0.0.1 at Mon Aug 15 09:30:53 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"223", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 223 LIMIT 1[0m
+Completed   in 125ms
+
+ActiveRecord::RecordNotFound (Couldn't find Order with ID=223):
+  app/controllers/orders_controller.rb:170:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.3ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:30:59 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (421.9ms)
+Completed 200 OK in 703ms (Views: 578.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=222&locale=en" for 127.0.0.1 at Mon Aug 15 09:31:03 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"222", "locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 222 LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 222)[0m
+  [1m[35mAREL (15.6ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = 84
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "orders" WHERE "orders"."id" = 222[0m
+Redirected to http://localhost:3000/destroyOneOrder?locale=en
+Completed 302 Found in 391ms
+
+
+Started GET "/destroyOneOrder?locale=en" for 127.0.0.1 at Mon Aug 15 09:31:04 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Completed   in 484ms
+
+ActiveRecord::RecordNotFound (Couldn't find Order without an ID):
+  app/controllers/orders_controller.rb:170:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.2ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (218.8ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:31:18 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/ordersrecord.html.erb within layouts/application (468.8ms)
+Completed 200 OK in 812ms (Views: 656.2ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:31:19 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (625.0ms)
+Completed 200 OK in 953ms (Views: 796.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=221&locale=en" for 127.0.0.1 at Mon Aug 15 09:33:25 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"221", "locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 221 LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 221)[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = 83
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "orders" WHERE "orders"."id" = 221[0m
+Completed   in 672ms
+
+ActionView::MissingTemplate (Missing template orders/destroyOneOrder with {:locale=>[:en, :en], :formats=>[:html], :handlers=>[:rjs, :rhtml, :erb, :rxml, :builder]} in view paths "D:/depot2/depot2/depot2/app/views"):
+  app/controllers/orders_controller.rb:173:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.0ms)
+
+
+Started GET "/destroyOneOrder?id=221&locale=en" for 127.0.0.1 at Mon Aug 15 09:33:32 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"221", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 221 LIMIT 1[0m
+Completed   in 125ms
+
+ActiveRecord::RecordNotFound (Couldn't find Order with ID=221):
+  app/controllers/orders_controller.rb:170:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (46.9ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:33:40 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (531.2ms)
+Completed 200 OK in 812ms (Views: 687.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=219&locale=en" for 127.0.0.1 at Mon Aug 15 09:35:02 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"219", "locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 219 LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 219)[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = 81
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "orders" WHERE "orders"."id" = 219[0m
+Completed   in 562ms
+
+ActionView::MissingTemplate (Missing template orders/destroyOneOrder with {:locale=>[:en, :en], :formats=>[:html], :handlers=>[:rjs, :rhtml, :erb, :rxml, :builder]} in view paths "D:/depot2/depot2/depot2/app/views"):
+  app/controllers/orders_controller.rb:173:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.0ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:35:20 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (328.1ms)
+Completed 200 OK in 812ms (Views: 500.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/orders" for 127.0.0.1 at Mon Aug 15 09:35:45 +0800 2011
+  Processing by OrdersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus=0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/index.html.erb within layouts/application (156.2ms)
+Completed 200 OK in 422ms (Views: 312.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/orders/new" for 127.0.0.1 at Mon Aug 15 09:35:49 +0800 2011
+  Processing by OrdersController#new as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mCart Load (15.6ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)
+Redirected to http://localhost:3000/en
+Completed 302 Found in 188ms
+
+
+Started GET "/en" for 127.0.0.1 at Mon Aug 15 09:35:50 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (593.8ms)
+Completed 200 OK in 969ms (Views: 781.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:35:56 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (265.6ms)
+Completed 200 OK in 609ms (Views: 437.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/destroyOneOrder?id=220&locale=en" for 127.0.0.1 at Mon Aug 15 09:38:05 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"id"=>"220", "locale"=>"destroyOneOrder"}
+destroyOneOrder translation not available
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (437.5ms)
+Completed 200 OK in 984ms (Views: 640.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:38:10 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (359.4ms)
+Completed 200 OK in 625ms (Views: 515.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/destroyOneOrder?id=220&locale=en" for 127.0.0.1 at Mon Aug 15 09:38:14 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"id"=>"220", "locale"=>"destroyOneOrder"}
+destroyOneOrder translation not available
+  [1m[36mProduct Load (15.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (609.4ms)
+Completed 200 OK in 969ms (Views: 781.2ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:38:23 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (265.6ms)
+Completed 200 OK in 594ms (Views: 468.8ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/destroyOneOrder?id=218&locale=en" for 127.0.0.1 at Mon Aug 15 09:40:28 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"id"=>"218", "locale"=>"destroyOneOrder"}
+destroyOneOrder translation not available
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)[0m
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/index.html.erb within layouts/application (609.4ms)
+Completed 200 OK in 938ms (Views: 781.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:40:36 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (265.6ms)
+Completed 200 OK in 562ms (Views: 437.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=218&locale=en" for 127.0.0.1 at Mon Aug 15 09:43:19 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"218", "locale"=>"en"}
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 218 LIMIT 1[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 218)
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = 80[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = 218
+Completed   in 1312ms
+
+NameError (undefined local variable or method `ordersrecord_order_url' for #<OrdersController:0x5465268>):
+  app/controllers/orders_controller.rb:173:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (62.5ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (328.1ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:43:24 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (31.2ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/ordersrecord.html.erb within layouts/application (640.6ms)
+Completed 200 OK in 1156ms (Views: 953.1ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/destroyOneOrder?id=217&locale=en" for 127.0.0.1 at Mon Aug 15 09:43:31 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"217", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 217 LIMIT 1[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 217)
+  [1m[36mAREL (15.6ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = 79[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = 217
+Completed   in 609ms
+
+NameError (undefined local variable or method `ordersrecord_order_url' for #<OrdersController:0x55da228>):
+  app/controllers/orders_controller.rb:173:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (171.9ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (453.1ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:44:32 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/ordersrecord.html.erb within layouts/application (437.5ms)
+Completed 200 OK in 828ms (Views: 609.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/destroyOneOrder?id=215&locale=en" for 127.0.0.1 at Mon Aug 15 09:44:36 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"215", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 215 LIMIT 1[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 215)
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = 77[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = 215
+  [1m[36mOrder Load (15.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+Completed   in 922ms
+
+ActionView::MissingTemplate (Missing template orders/destroyOneOrder with {:locale=>[:en, :en], :formats=>[:html], :handlers=>[:rjs, :rhtml, :erb, :rxml, :builder]} in view paths "D:/depot2/depot2/depot2/app/views"):
+  app/controllers/orders_controller.rb:176:in `destroyOneOrder'
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.0ms)
+
+
+Started GET "/destroyOneOrder?id=216&locale=en" for 127.0.0.1 at Mon Aug 15 09:45:48 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"216", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 216 LIMIT 1[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 216)
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = 78[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = 216
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/destroyOneOrder.html.erb within layouts/application (906.2ms)
+Completed 200 OK in 1531ms (Views: 1093.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 172.18.181.44 at Mon Aug 15 09:46:25 +0800 2011
+  Processing by StoreController#index as 
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "carts" ("updated_at", "created_at") VALUES ('2011-08-15 01:46:26.593750', '2011-08-15 01:46:26.593750')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 117)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (1125.0ms)
+Completed 200 OK in 2406ms (Views: 1921.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 172.18.181.44 at Mon Aug 15 09:46:28 +0800 2011
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (31.2ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "carts" ("updated_at", "created_at") VALUES ('2011-08-15 01:47:34.125000', '2011-08-15 01:47:34.125000')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 118)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (703.1ms)
+Completed 200 OK in 23328ms (Views: 1078.1ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:48:41 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (15.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mOrder Load (46.9ms)[0m  SELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered orders/ordersrecord.html.erb within layouts/application (484.4ms)
+Completed 200 OK in 1047ms (Views: 750.0ms | ActiveRecord: 62.5ms)
+
+
+Started GET "/destroyOneOrder?id=220&locale=en" for 127.0.0.1 at Mon Aug 15 09:50:18 +0800 2011
+
+SyntaxError (D:/depot2/depot2/depot2/app/controllers/orders_controller.rb:173: syntax error, unexpected tASSOC, expecting '}'
+    redirect_to {:controller => "orders" , :action => "ordersrecord"}
+                               ^
+D:/depot2/depot2/depot2/app/controllers/orders_controller.rb:173: syntax error, unexpected ',', expecting '}'
+    redirect_to {:controller => "orders" , :action => "ordersrecord"}
+                                          ^):
+  
+
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.6ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.2ms)
+Rendered d:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (156.2ms)
+
+
+Started GET "/destroyOneOrder?id=220&locale=en" for 127.0.0.1 at Mon Aug 15 09:52:19 +0800 2011
+  Processing by OrdersController#destroyOneOrder as HTML
+  Parameters: {"id"=>"220", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 220 LIMIT 1[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".order_id = 220)
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = 82[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = 220
+Redirected to http://localhost:3000/ordersrecord?locale=en
+Completed 302 Found in 500ms
+
+
+Started POST "/en/line_items?product_id=8" for 172.18.181.44 at Mon Aug 15 09:52:20 +0800 2011
+  Processing by LineItemsController#create as JS
+  Parameters: {"product_id"=>"8", "authenticity_token"=>"38sZzvthKZaIt72jtC0HCU+Ra6tdEp7YY6m7doAr+s8=", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 117 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."product_id" = 8 AND ("line_items".cart_id = 117) LIMIT 1[0m
+  [1m[35mAREL (15.6ms)[0m  INSERT INTO "line_items" ("cart_id", "product_id", "updated_at", "order_id", "quantity", "created_at") VALUES (117, 8, '2011-08-15 01:52:21.890625', NULL, 1, '2011-08-15 01:52:21.890625')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 117)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 117)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (125.0ms)
+Rendered carts/_cart.html.erb (343.8ms)
+  [1m[35mSQL (0.0ms)[0m  SELECT SUM("line_items"."quantity") AS sum_id FROM "line_items" WHERE ("line_items".cart_id = 117)
+Rendered line_items/create.js.rjs (437.5ms)
+Completed 200 OK in 1594ms (Views: 843.8ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/en/line_items?product_id=9" for 172.18.181.44 at Mon Aug 15 09:52:22 +0800 2011
+  Processing by LineItemsController#create as JS
+  Parameters: {"product_id"=>"9", "authenticity_token"=>"38sZzvthKZaIt72jtC0HCU+Ra6tdEp7YY6m7doAr+s8=", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 117 LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."product_id" = 9 AND ("line_items".cart_id = 117) LIMIT 1[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "line_items" ("product_id", "cart_id", "created_at", "quantity", "updated_at", "order_id") VALUES (9, 117, '2011-08-15 01:52:24.875000', 1, '2011-08-15 01:52:24.875000', NULL)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 117)[0m
+  [1m[35mLineItem Load (15.6ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 117)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+  [1m[35mProduct Load (15.6ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (78.1ms)
+Rendered carts/_cart.html.erb (281.2ms)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT SUM("line_items"."quantity") AS sum_id FROM "line_items" WHERE ("line_items".cart_id = 117)[0m
+Rendered line_items/create.js.rjs (375.0ms)
+Completed 200 OK in 1719ms (Views: 734.4ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/ordersrecord?locale=en" for 127.0.0.1 at Mon Aug 15 09:52:25 +0800 2011
+  Processing by OrdersController#ordersrecord as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mOrder Load (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (orderstatus<>0) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered orders/ordersrecord.html.erb within layouts/application (203.1ms)
+Completed 200 OK in 609ms (Views: 421.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at Mon Aug 15 10:14:49 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (46.9ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 116 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 116)[0m
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/index.html.erb within layouts/application (828.1ms)
+Completed 200 OK in 1469ms (Views: 1171.9ms | ActiveRecord: 46.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Aug 16 09:24:48 +0800 2011
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (15.6ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "carts" ("updated_at", "created_at") VALUES ('2011-08-16 01:24:56.265625', '2011-08-16 01:24:56.265625')
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 119)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (1875.0ms)
+Completed 200 OK in 5344ms (Views: 2250.0ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Tue Aug 16 09:25:11 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (62.5ms)
+Completed 200 OK in 375ms (Views: 375.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Tue Aug 16 09:26:38 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Go and Try", "authenticity_token"=>"dTAfbf9F3aYkf7pa9Lj5u0eG9LU1GaSHH7TfNJ62Zg0=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 119 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by title[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 119)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/show_search.html.erb within layouts/application (546.9ms)
+Completed 200 OK in 1188ms (Views: 796.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Tue Aug 16 09:28:00 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (171.9ms)
+Completed 200 OK in 438ms (Views: 437.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register?locale=en" for 127.0.0.1 at Tue Aug 16 09:29:01 +0800 2011
+  Processing by UsersController#newuser as HTML
+  Parameters: {"locale"=>"en"}
+Rendered users/_register.html.erb (531.2ms)
+Rendered users/newuser.html.erb within layouts/application (718.8ms)
+Completed 200 OK in 1312ms (Views: 1140.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Tue Aug 16 09:29:31 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 297ms (Views: 296.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Tue Aug 16 09:29:39 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"qinjinghui", "commit"=>"Login", "authenticity_token"=>"dTAfbf9F3aYkf7pa9Lj5u0eG9LU1GaSHH7TfNJ62Zg0=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'qinjinghui' LIMIT 1[0m
+Redirected to http://localhost:3000/admin?locale=en
+Completed 302 Found in 688ms
+
+
+Started GET "/admin?locale=en" for 127.0.0.1 at Tue Aug 16 09:29:40 +0800 2011
+  Processing by AdminController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered admin/index.html.erb within layouts/application (281.2ms)
+Completed 200 OK in 719ms (Views: 546.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Tue Aug 16 09:29:41 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"qinjinghui", "commit"=>"Login", "authenticity_token"=>"dTAfbf9F3aYkf7pa9Lj5u0eG9LU1GaSHH7TfNJ62Zg0=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'qinjinghui' LIMIT 1[0m
+Redirected to http://localhost:3000/admin?locale=en
+Completed 302 Found in 391ms
+
+
+Started GET "/admin?locale=en" for 127.0.0.1 at Tue Aug 16 09:29:42 +0800 2011
+  Processing by AdminController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered admin/index.html.erb within layouts/application (234.4ms)
+Completed 200 OK in 1234ms (Views: 765.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favourites?locale=en" for 127.0.0.1 at Tue Aug 16 09:29:50 +0800 2011
+  Processing by FavouritesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mFavourite Load (0.0ms)[0m  SELECT "favourites".* FROM "favourites" WHERE (user_id = 25) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered favourites/index.html.erb within layouts/application (765.6ms)
+Completed 200 OK in 1156ms (Views: 1031.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/comments?locale=en" for 127.0.0.1 at Tue Aug 16 09:30:32 +0800 2011
+  Processing by CommentsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered comments/index.html.erb within layouts/application (531.2ms)
+Completed 200 OK in 1016ms (Views: 890.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/34?locale=en" for 127.0.0.1 at Tue Aug 16 09:31:27 +0800 2011
+  Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"34", "locale"=>"en"}
+  [1m[36mUser Load (15.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."id" = 34 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+Rendered comments/show.html.erb within layouts/application (796.9ms)
+Completed 200 OK in 1203ms (Views: 1078.1ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/comments?locale=en" for 127.0.0.1 at Tue Aug 16 09:31:32 +0800 2011
+  Processing by CommentsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered comments/index.html.erb within layouts/application (703.1ms)
+Completed 200 OK in 1031ms (Views: 906.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at Tue Aug 16 09:31:33 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 119 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 119)[0m
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (1250.0ms)
+Completed 200 OK in 1641ms (Views: 1484.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/show?id=8&locale=en" for 127.0.0.1 at Tue Aug 16 09:31:39 +0800 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8", "locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE (product_id = 8) ORDER BY created_at asc LIMIT 2 OFFSET 0
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE (product_id = 8)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered products/show.html.erb within layouts/application (484.4ms)
+Completed 200 OK in 953ms (Views: 703.1ms | ActiveRecord: 15.6ms)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (109.4ms)[0m  CREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "user_id" integer, "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (109.4ms)[0m  CREATE TABLE "favourites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "cart_id" integer, "created_at" datetime, "updated_at" datetime, "quantity" integer DEFAULT 1, "order_id" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (109.4ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "orderstatus" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal, "created_at" datetime, "updated_at" datetime, "inventory" integer DEFAULT 0, "sales" integer DEFAULT 0, "author" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (125.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime, "user_type" integer DEFAULT 1) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (109.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (125.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811071055')[0m
+  [1m[35mSQL (93.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110718031907')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719012246')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719012747')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719071636')[0m
+  [1m[35mSQL (109.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719072504')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110725054659')[0m
+  [1m[35mSQL (93.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110725054830')
+  [1m[36mSQL (203.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110801005912')[0m
+  [1m[35mSQL (109.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110808040208')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809005752')[0m
+  [1m[35mSQL (93.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110809064414')
+  [1m[36mSQL (109.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809082730')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810053343')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110810062858')[0m
+  [1m[35mSQL (187.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810073713')
+  [1m[36mSQL (93.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811050033')[0m
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (203.1ms)[0m  CREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (250.0ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "user_id" integer, "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (312.5ms)[0m  CREATE TABLE "favourites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (234.4ms)[0m  CREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "cart_id" integer, "created_at" datetime, "updated_at" datetime, "quantity" integer DEFAULT 1, "order_id" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (281.2ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (140.6ms)[0m  CREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "orderstatus" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (218.8ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal, "created_at" datetime, "updated_at" datetime, "inventory" integer DEFAULT 0, "sales" integer DEFAULT 0, "author" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (156.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime, "user_type" integer DEFAULT 1) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (234.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (171.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (187.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811071055')[0m
+  [1m[35mSQL (218.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110718031907')
+  [1m[36mSQL (171.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719012246')[0m
+  [1m[35mSQL (265.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719012747')
+  [1m[36mSQL (187.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719071636')[0m
+  [1m[35mSQL (187.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719072504')
+  [1m[36mSQL (375.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110725054659')[0m
+  [1m[35mSQL (343.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110725054830')
+  [1m[36mSQL (203.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110801005912')[0m
+  [1m[35mSQL (187.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110808040208')
+  [1m[36mSQL (328.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809005752')[0m
+  [1m[35mSQL (234.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110809064414')
+  [1m[36mSQL (250.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809082730')[0m
+  [1m[35mSQL (296.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810053343')
+  [1m[36mSQL (171.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110810062858')[0m
+  [1m[35mSQL (203.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810073713')
+  [1m[36mSQL (140.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811050033')[0m
+
+
+Started GET "/store" for 127.0.0.1 at Tue Aug 16 10:00:14 +0800 2011
+  Processing by StoreController#index as 
+  Parameters: {"locale"=>"store"}
+store translation not available
+  [1m[36mProduct Load (31.2ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "carts" ("updated_at", "created_at") VALUES ('2011-08-16 02:00:23.328125', '2011-08-16 02:00:23.328125')[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (140.6ms)[0m  CREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (125.0ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "user_id" integer, "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (93.8ms)[0m  CREATE TABLE "favourites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "product_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (109.4ms)[0m  CREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "cart_id" integer, "created_at" datetime, "updated_at" datetime, "quantity" integer DEFAULT 1, "order_id" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (312.5ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (421.9ms)[0m  CREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "orderstatus" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (218.8ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "price" decimal, "created_at" datetime, "updated_at" datetime, "inventory" integer DEFAULT 0, "sales" integer DEFAULT 0, "author" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (250.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime, "user_type" integer DEFAULT 1) 
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 120)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (968.8ms)
+Completed 200 OK in 5547ms (Views: 2421.9ms | ActiveRecord: 31.2ms)
+  [1m[35mSQL (343.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (328.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (234.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811071055')[0m
+  [1m[35mSQL (187.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110718031907')
+  [1m[36mSQL (140.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719012246')[0m
+  [1m[35mSQL (109.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719012747')
+  [1m[36mSQL (125.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110719071636')[0m
+  [1m[35mSQL (78.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110719072504')
+  [1m[36mSQL (156.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110725054659')[0m
+  [1m[35mSQL (187.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110725054830')
+  [1m[36mSQL (140.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110801005912')[0m
+  [1m[35mSQL (93.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110808040208')
+  [1m[36mSQL (250.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809005752')[0m
+  [1m[35mSQL (328.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110809064414')
+  [1m[36mSQL (421.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110809082730')[0m
+  [1m[35mSQL (265.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810053343')
+  [1m[36mSQL (312.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110810062858')[0m
+  [1m[35mSQL (234.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110810073713')
+  [1m[36mSQL (343.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110811050033')[0m

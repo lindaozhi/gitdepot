@@ -1,9 +1,9 @@
-<h1>Editing product</h1>
+<h1><%= t('.edit')%></h1>
 
 <%= form_tag({:action => 'update'}, :multipart => true) %>
 
 	<%= render :partial => 'form' %>	
 </form>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<%= link_to t('.show'), @product %> |
+<%= link_to t('.back'), products_path %>

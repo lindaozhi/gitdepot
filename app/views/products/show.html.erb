@@ -19,21 +19,21 @@
 		</td>
 		<td style="width:80%">
   			<h2><b><%= @product.title %></b></h2>	
-  			<b>Author:<b><%= @product.author%>
+  			<b><%= t('.author')%>:<b><%= @product.author%>
 			<p>			
-  				<b>Inventory:</b>   
+  				<b><%= t('.inventory')%>:</b>   
   			 	<%= @product.inventory %>  
 			</p>
 
 			<p>
-  				<b>Price:</b>
+  				<b><%= t('.price')%>:</b>
   				<%= @product.price %>
 			</p>
 		</td>
 	</tr>
 	<tr>
 		<td colspan = 2>			
-  			<h1>Description</h1>
+  			<h1><%= t('.description')%></h1>
   			<%= @product.description %>
 			
 		</td>
@@ -47,28 +47,28 @@
 
 <% if session[:user_id]%>
 	<% if @user.user_type == 1 %>
-		<%= link_to 'Edit', edit_product_path(@product) %> |
-		<%= link_to 'Back', products_path %>
+		<%= link_to t('.edit'), edit_product_path(@product) %> |
+		<%= link_to t('.back'), products_path %>
 	<% else %>
-		<%= link_to 'Back', store_path %>
+		<%= link_to t('.back'), store_path %>
 	<% end %>
 <%else%>	
-	<%= link_to 'Back', store_path %>
+	<%= link_to t('.back'), store_path %>
 <% end %>
 <br/>
 <br/>
 <% if @comments != nil%>
-<h1>Comment</h1>
+<h1><%= t('.comments')%></h1>
 <div style="width:100%">	
 	
 		<% @comments.each do |comment|%>
 		<fieldset style="background-color:#bfb">
 			<% @user = User.find(comment.user_id)%>
-			<legend style="background-color:gray"><%= @user.name%>'s comment:</legend>
+			<legend style="background-color:gray"><%= @user.name%><%=t('.s_comment')%>:</legend>
 		
 			 <textarea id="ta"  rows = "3" cols = "115" readonly="readonly"><%= comment.description%></textarea> 	
 			 <hr width="100%">
-			 commit at <%= comment.created_at%>		
+			 <%=t('.comment_at')%> <%= comment.created_at%>		
 			</fieldset>	
 			<h5></h5>		
 		<% end %>
@@ -103,10 +103,10 @@
   </div> -->
 
   <div class="field">
-    <h1><%= f.label 'Writting Comment' %></h1><br />
+    <h1><%= f.label t('.Writting_Comment') %></h1><br />
     <%= f.text_area :description ,:rows =>5,:cols => 100%>
   </div>
   <div class="actions">
-    <%= f.submit 'Commit'%>
+    <%= f.submit t('.commit')%>
   </div>
 <% end %>

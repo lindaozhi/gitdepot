@@ -1,4 +1,4 @@
-<h1>Welcome</h1>
+<h1><%= t('.welcome')%></h1>
 
-It's <%= Time.now %>
-We have <%= pluralize(@total_orders,"order")%>
+<%= t('.it')%><%= Time.now %>
+<%= t('.we')%> <%= pluralize(@total_orders,t('.order'))%>

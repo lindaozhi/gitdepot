@@ -40,24 +40,25 @@ class FavouritesController < ApplicationController
   # POST /favourites
   # POST /favourites.xml
   def create
-    @temp = Favourite.find(:all,:conditions => ["product_id = ? and user_id = ?",params[:id],session[:user_id]])
-    if @temp
+     @temp = Favourite.count(:conditions => ["product_id = ? and user_id = ?",params[:id],session[:user_id]])
+    if @temp != 0
       redirect_to favourites_url
       return
     end
     @favourite = Favourite.new
     @favourite.product_id = params[:id]
     @favourite.user_id = session[:user_id]
-    
-    respond_to do |format|
-      if @favourite.save
-        format.html { redirect_to(@favourite, :notice => 'Favourite was successfully created.') }
-        format.xml  { render :xml => @favourite, :status => :created, :location => @favourite }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @favourite.errors, :status => :unprocessable_entity }
-      end
-    end
+    @favourite.save
+    redirect_to favourites_url
+    # respond_to do |format|
+      # if @favourite.save
+        # format.html { redirect_to(@favourite, :notice => 'Favourite was successfully created.') }
+        # format.xml  { render :xml => @favourite, :status => :created, :location => @favourite }
+      # else
+        # format.html { render :action => "new" }
+        # format.xml  { render :xml => @favourite.errors, :status => :unprocessable_entity }
+      # end
+    # end
   end
 
   # PUT /favourites/1

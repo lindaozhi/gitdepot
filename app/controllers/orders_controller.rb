@@ -171,7 +171,5 @@ class OrdersController < ApplicationController
     @order.destroy
 
     redirect_to :controller => "orders" , :action => "ordersrecord"
-     
-    
   end
 end

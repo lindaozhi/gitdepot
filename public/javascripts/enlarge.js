@@ -7,9 +7,7 @@
 		
 		//用来装图片和按钮
 		var container = document.createElement("div");
-		var image = document.createElement("img");
 		var imageContainer = document.createElement("div");
-		$(image).appendTo(imageContainer);
 		$(imageContainer).addClass("imageContainer").appendTo(container);
 		$(container).addClass('container').appendTo('body');
 		
@@ -33,6 +31,8 @@
 		$('.entry img').each(function(){
 			//click the picture and show details
 			$(this).unbind('click').click(function(){
+				var image = document.createElement("img");
+				$(image).appendTo(imageContainer);
 				image.src = this.src;
 				var width = image.width;
 				var addWidth = width / 10;
@@ -72,8 +72,7 @@
 					});
 					
 					//重新调整好属性,在下次点击前可以恢复到原始状态
-					image.width = width;
-					image.height = height;
+					$(image).remove();
 					enlargeButton.disabled = null;
 					enlargeButton.src = "../images/enlargeButton.png";
 					narrowButton.disabled = null;
@@ -87,7 +86,8 @@
 					{
 						image.width = image.width + addWidth;
 						image.height = image.height + addHeight;
-						if(narrowButton.disabled = "disabled"){           //有可能按放大是在最小时,此时缩小键应该是不可用的,必须让其重新生效,下同
+						//有可能按放大是在最小时,此时缩小键应该是不可用的,必须让其重新生效,下同
+						if(narrowButton.disabled = "disabled"){           
 							narrowButton.disabled = null;
 							narrowButton.src = "../images/narrowButton.png";
 						}

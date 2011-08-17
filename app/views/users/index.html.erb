@@ -1,10 +1,10 @@
-<h1>Listing users</h1>
+<h1><%= t('.list')%></h1>
 
 <p id="notic"><%= notice %></p>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Type</th>
+    <th><%= t('.name')%></th>
+    <th><%= t('.type')%></th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,10 +14,10 @@
   <% if user.user_type == 1%>
   <tr>  	
     <td><%= user.name %></td>
-    <td> <%= "adminstrator"%></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td> <%= t('.administrator')%></td>
+    <td><%= link_to t('.show'), user %></td>
+    <td><%= link_to t('.edit'), edit_user_path(user) %></td>
+    <td><%= link_to t('.destroy'), user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <% end %>
 <% end %>
@@ -26,10 +26,10 @@
   <% if user.user_type == 2%>
   <tr>
     <td><%= user.name %></td>
-    <td><%= "user"%></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= t('.user')%></td>
+    <td><%= link_to t('.show'), user %></td>
+    <td><%= link_to t('.edit'), edit_user_path(user) %></td>
+    <td><%= link_to t('.destroy'), user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <% end %>    	
 <% end %>
@@ -37,4 +37,4 @@
 
 <br />
 
-<%= link_to 'New Adminstrator', new_user_path %>
+<%= link_to t('.new'), new_user_path %>

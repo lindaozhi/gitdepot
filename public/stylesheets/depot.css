@@ -237,7 +237,6 @@
 .back {
 	position: absolute;
 	z-index: 4;
-/*	-moz-opacity: 0.8;*/
 	opacity: 0.8;
 	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
 	background-color: #000000;
@@ -252,9 +251,6 @@
 }
 
 .imageContainer {
-	border: 3px;
-	border-color: white;
-	border-style: solid;
 	height: 400px;
 }
 .enlargeButton, .narrowButton{

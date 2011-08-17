@@ -3,9 +3,7 @@ Depot::Application.routes.draw do
 
    
 
-  resources :favourites
-
-  resources :comments
+  
 
   #get "admin/index"
 
@@ -36,11 +34,13 @@ Depot::Application.routes.draw do
     get 'cancelorder' => :cancelorder
     get 'ordersrecord'=> :ordersrecord
     get 'userorderrecord' => :userorderrecord
+    post 'destroyOneOrder' => :destroyOneOrder
     get 'destroyOneOrder' => :destroyOneOrder
   end
   
   controller :favourites do
     post 'create' => :create
+    get 'create' => :create
   end
   
   controller :store do
@@ -53,6 +53,8 @@ Depot::Application.routes.draw do
     resources :line_items
     resources :carts  
     resources :messages 
+    resources :favourites
+    resources :comments
     resources :products do
       get :who_bought, :on => :member
     end

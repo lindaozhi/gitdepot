@@ -13,7 +13,7 @@
 <% @products.each do |product| %>
   <div class="entry">
   	<%= image_tag(product.image_url) %>
-  	<h3><%= link_to  product.title ,{:controller => "products" ,:action => "show" ,:id => product},:style=>"text-decoration:none"%>&nbsp&nbsp (Inventory:<%= product.inventory%>)&nbsp&nbsp(Sales:<%= product.sales%>)</h3>
+  	<h3><%= link_to  product.title ,{:controller => "products" ,:action => "show" ,:id => product},:style=>"text-decoration:none"%>&nbsp&nbsp (<%=t('.inventory')%><%= product.inventory%>)&nbsp&nbsp(<%= t('.sale')%><%= product.sales%>)</h3>
   	<%= sanitize product.description %>
   	<div class="price_line">
   		<span class="price"><%= number_to_currency(product.price) %></span>
@@ -21,7 +21,7 @@
   			<%= button_to t('.add').html_safe , line_items_path(:product_id => product),
   				:remote => true %>  
   		<%end%>	
-  		<%= button_to 'Favourite', {:controller => "favourites",:action => "create",:id=> product}%>	
+  		<%= button_to t('.favourite').html_safe, {:controller => "favourites",:action => "create",:id=> product}%>	
     </div>
   </div>
 <% end %>

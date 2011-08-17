@@ -29,6 +29,21 @@ en:
       questions:   "Questions"
       news:        "News"
       contact:     "Contact"
+      admin_help:  "Administrator Help"
+      user_help:   "User Help"
+      favourite:   "Favourites"
+      my_order:    "My Orders"
+      my_order_record: "My Order Record"
+      login:       "Login"
+      register:    "Register"
+      search:      "Search"
+      go:          "Search"
+      logout:      "Logout"
+      order:       "Orders"
+      product:     "Products"
+      user:        "Users"
+      order_record: "Order Record"
+      comment:     "Comments"
 #END:layout
 
 #START:cart
@@ -37,6 +52,12 @@ en:
       title:       "Your Cart"
       empty:       "Empty cart"
       checkout:    "Checkout"
+      error:       "Error"
+      prohibit:    "prohibited this cart from being saved:"
+    edit:
+      Edit:        "Edit"
+      edit_cart:   "Edit Cart"
+      back:        "Back"
 #END:cart
 
 #START:main
@@ -44,6 +65,18 @@ en:
     index:
       title_html:  "Your Pragmatic Catalog"
       add:    "Add to Cart"
+      favourite: "Favourite"
+      inventory: "Inventories:"
+      sale:      "Sales"
+    show_search:
+      order_by:  "Order By"
+      title:     "Title"
+      price:     "Price"
+      search_result: "List Your Search Books"
+      add:    "Add to Cart"
+      favourite: "Favourite"
+      inventory: "Inventories:"
+      sale:      "Sales"
 #END:main
 
 #START:checkout
@@ -57,8 +90,147 @@ en:
       pay_type:     "Pay with"
       pay_prompt: "Select a payment method"
       submit:       "Place Order"
+    index_record:
+      user_name:  "User Name"
+      order_name: "Name"
+      order:      "Order"
+      address:    "Address"
+      paytype:    "Pay Type"
+      order_status: "Order Status"
+      list:       "List Orders"
+    userorderrecord:
+      user_name:  "User Name"
+      order_name: "Name"
+      order:      "Order"
+      address:    "Address"
+      paytype:    "Pay Type"
+      order_status: "Order Status"
+      list:       "List Orders Record"
+      unsent:     "unsent"
+      sent:       "sent"
+      cancel:     "cancel"
+      show:       "show"
+    index:
+      user_name:  "User Name"
+      order_name: "Name"
+      order:      "Order"
+      address:    "Address"
+      paytype:    "Pay Type"
+      order_status: "Order Status"
+      list:       "List Orders"
+      new:        "new"
+    ordersrecord:
+      user_name:  "User Name"
+      order_name: "Name"
+      order:      "Order"
+      address:    "Address"
+      paytype:    "Pay Type"
+      order_status: "Order Status"
+      list:       "List Orders Record"
+      unsent:     "unsent"
+      sent:       "sent"
+      cancel:     "cancel"
+      show:       "Show"
+      destroy:    "Destroy"
+        
 #END:checkout
 
+  sessions:
+    new:
+      please_login:   "Please Login"
+      name:           "Name:"
+      password:       "Password:"
+      login:          "Login"
+
+  admin:
+    index:
+      welcome:        "Welcome"
+      it:             "It is"
+      we:             "We have"
+      order:          "orders"
+   
+  favourites:
+    index:
+      list:             "List Your Favourite"
+      destroy:          "Destroy"
+      add:              "Add to cart"
+      back:             "back"
+      
+  users:
+    index:
+      list:             "Listing Users"
+      name:             "Name"
+      type:             "Type"
+      show:             "Show"
+      administrator:    "Administrator"
+      user:             "User"
+      edit:             "Edit"
+      destroy:          "Destroy"
+      new:              "New Adminstrator"
+      
+  products:
+    index:
+      list:             "Listing Products"
+      show:             "Show"
+      edit:             "Edit"
+      destroy:          "Destroy"
+      new:              "New Products"
+      confirm:          "Are you sure?"
+    show:
+      author:           "Author"
+      inventory:        "Inventory"
+      price:            "Price"
+      description:      "Description"
+      edit:             "Edit"
+      back:             "Back"
+      comments:         "Comments"
+      s_comment:        "’s comment"
+      comment_at:       "comment at"
+      Writting_Comment: "Writting Comment"
+      commit:           "Commit"
+    edit:
+      edit:             "Editing Product"
+      show:             "Show"
+      back:             "Back"
+    form:
+      title:            "Title"
+      author:           "Author"
+      description:      "Description"
+      image_url:        "image_url"
+      inventory:        "Inventory"
+      price:            "Price"
+      ti:               "Submit"
+        
+  comments:
+    edit:
+      edit_comment:     "Edit Comments"
+      show:             "Show"
+      back:             "Back"
+    index:
+      list:             "Listing Comments"
+      product:          "Product"
+      user:             "User"
+      description:      "Description"
+      show:             "Show"
+      edit:             "Edit"
+      destroy:          "Destroy"
+      new:              "New Comments"
+    new:
+      back:             "Back"
+      new:              "New Comments"
+    show:
+      back:             "Back"
+      product:          "Product"
+      user:             "User"
+      description:      "Description"
+      edit:             "Edit"
+    form:
+      product:          "Product"
+      user:             "User"
+      description:      "Description"
+      update:           "Update Comments"
+      
+      
 #START:flash
   thanks:          "Thank you for your order"
 #END:flash

@@ -1,18 +1,17 @@
-<h1>Listing orders</h1>
+<h1><%= t('.list')%></h1>
 
 <table>
   <tr>
-  	<th>UserName</th>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Email</th>
-    <th>Pay type</th>
-    <th>Order status</th>
+  	<th><%= t('.user_name')%></th>
+    <th><%= t('.order_name')%></th>
+    <th><%= t('.address')%></th>
+    <th><%= t('.order')%></th>
+    <th><%= t('.paytype')%></th>
+    <th><%= t('.order_status')%></th>
     <th></th>
     <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th></th>  
+    <th></th>    
   </tr>
 
 <% @orders.each do |order| %>
@@ -34,5 +33,5 @@
 
 <br />
 
-<%= link_to 'New Order', new_order_path %>
+<%= link_to t('.new'), new_order_path %>
 <p><%= will_paginate @orders %></p>

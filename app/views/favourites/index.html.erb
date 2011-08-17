@@ -1,4 +1,4 @@
-<h1>Listing favourites</h1>
+<h1><%= t('.list')%></h1>
 
 <% @favourites.each do |favourite| %>
   <% @product = Product.find(favourite.product_id)%>
@@ -11,11 +11,11 @@
   			<tr>
   				<td><span class="price"><%= number_to_currency(@product.price) %></span></td>
   				<td><% if @product.inventory != 0%>
-  						<%= button_to 'Add to Cart' , line_items_path(:product_id => @product),
+  						<%= button_to t('.add') , line_items_path(:product_id => @product),
   								:remote => true %>  
    					<%end%>	</td>  				
   				<td>
-  					<%= button_to 'Destroy', favourite, :confirm => 'Are you sure?', :method => :delete %></td>
+  					<%= button_to t('.destroy'), favourite, :confirm => 'Are you sure?', :method => :delete %></td>
   			</tr>
   		</table>
     </div>
@@ -24,4 +24,4 @@
    
 <br />
 <p><%= will_paginate @favourites%></p>
-<%= link_to 'back', store_path%>
+<%= link_to t('.back'), store_path%>

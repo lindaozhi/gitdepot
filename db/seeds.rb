@@ -39,3 +39,6 @@
   # :price => 43.75)
 
 Comment.delete_all
+Order.delete_all
+Message.delete_all
+Favourite.delete_all

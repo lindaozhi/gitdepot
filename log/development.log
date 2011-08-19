@@ -47626,3 +47626,897 @@ Started GET "/en" for 127.0.0.1 at Fri Aug 19 09:29:49 +0800 2011
 Rendered carts/_cart.html.erb (0.0ms)
 Rendered store/index.html.erb within layouts/application (140.4ms)
 Completed 200 OK in 328ms (Views: 280.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create?id=8&locale=en" for 127.0.0.1 at Fri Aug 19 10:18:15 +0800 2011
+  Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "id"=>"8", "locale"=>"en"}
+  [1m[36mSQL (15.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "favourites" WHERE (product_id = '8' and user_id = 26)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "favourites" ("user_id", "updated_at", "product_id", "created_at") VALUES (26, '2011-08-19 02:18:26.917809', 8, '2011-08-19 02:18:26.917809')
+Redirected to http://localhost:3000/en/favourites
+Completed 302 Found in 234ms
+
+
+Started GET "/en/favourites" for 127.0.0.1 at Fri Aug 19 10:18:26 +0800 2011
+  Processing by FavouritesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mFavourite Load (0.0ms)[0m  SELECT "favourites".* FROM "favourites" WHERE (user_id = 26) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+Rendered favourites/index.html.erb within layouts/application (358.8ms)
+Completed 200 OK in 452ms (Views: 421.2ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 10:18:30 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+Rendered carts/_cart.html.erb (15.6ms)
+Rendered store/index.html.erb within layouts/application (249.6ms)
+Completed 200 OK in 359ms (Views: 296.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create?id=9&locale=en" for 127.0.0.1 at Fri Aug 19 10:18:33 +0800 2011
+  Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "id"=>"9", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "favourites" WHERE (product_id = '9' and user_id = 26)[0m
+  [1m[35mAREL (15.6ms)[0m  INSERT INTO "favourites" ("updated_at", "created_at", "user_id", "product_id") VALUES ('2011-08-19 02:18:33.938464', '2011-08-19 02:18:33.938464', 26, 9)
+Redirected to http://localhost:3000/en/favourites
+Completed 302 Found in 47ms
+
+
+Started GET "/en/favourites" for 127.0.0.1 at Fri Aug 19 10:18:34 +0800 2011
+  Processing by FavouritesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mFavourite Load (0.0ms)[0m  SELECT "favourites".* FROM "favourites" WHERE (user_id = 26) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+Rendered favourites/index.html.erb within layouts/application (234.0ms)
+Completed 200 OK in 312ms (Views: 280.8ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 10:18:37 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+Rendered carts/_cart.html.erb (0.0ms)
+Rendered store/index.html.erb within layouts/application (234.0ms)
+Completed 200 OK in 359ms (Views: 280.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create?id=9&locale=en" for 127.0.0.1 at Fri Aug 19 10:18:38 +0800 2011
+  Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "id"=>"9", "locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "favourites" WHERE (product_id = '9' and user_id = 26)
+Redirected to http://localhost:3000/en/favourites
+Completed 302 Found in 31ms
+
+
+Started GET "/en/favourites" for 127.0.0.1 at Fri Aug 19 10:18:39 +0800 2011
+  Processing by FavouritesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mFavourite Load (0.0ms)[0m  SELECT "favourites".* FROM "favourites" WHERE (user_id = 26) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+Rendered favourites/index.html.erb within layouts/application (280.8ms)
+Completed 200 OK in 359ms (Views: 327.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/line_items?product_id=8" for 127.0.0.1 at Fri Aug 19 10:18:45 +0800 2011
+  Processing by LineItemsController#create as JS
+  Parameters: {"product_id"=>"8", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "locale"=>"en", "_"=>""}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."product_id" = 8 AND ("line_items".cart_id = 132) LIMIT 1
+  [1m[36mAREL (15.6ms)[0m  [1mINSERT INTO "line_items" ("quantity", "created_at", "updated_at", "product_id", "order_id", "cart_id") VALUES (1, '2011-08-19 02:18:45.471807', '2011-08-19 02:18:45.471807', 8, NULL, 132)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (15.6ms)
+Rendered carts/_cart.html.erb (31.2ms)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT SUM("line_items"."quantity") AS sum_id FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+Rendered line_items/create.js.rjs (46.8ms)
+Completed 200 OK in 328ms (Views: 218.4ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 10:18:46 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (15.6ms)
+Rendered carts/_cart.html.erb (62.4ms)
+Rendered store/index.html.erb within layouts/application (327.6ms)
+Completed 200 OK in 452ms (Views: 405.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create?id=8&locale=en" for 127.0.0.1 at Fri Aug 19 10:18:49 +0800 2011
+  Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "id"=>"8", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "favourites" WHERE (product_id = '8' and user_id = 26)[0m
+Redirected to http://localhost:3000/en/favourites
+Completed 302 Found in 31ms
+
+
+Started GET "/en/favourites" for 127.0.0.1 at Fri Aug 19 10:18:49 +0800 2011
+  Processing by FavouritesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mFavourite Load (0.0ms)[0m  [1mSELECT "favourites".* FROM "favourites" WHERE (user_id = 26) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+Rendered favourites/index.html.erb within layouts/application (218.4ms)
+Completed 200 OK in 296ms (Views: 265.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/logout?locale=en" for 127.0.0.1 at Fri Aug 19 11:42:28 +0800 2011
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "locale"=>"en"}
+Redirected to http://localhost:3000/en
+Completed 302 Found in 0ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 11:42:28 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (31.2ms)
+Rendered carts/_cart.html.erb (46.8ms)
+Rendered store/index.html.erb within layouts/application (296.4ms)
+Completed 200 OK in 421ms (Views: 358.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/show?id=8&locale=en" for 127.0.0.1 at Fri Aug 19 11:43:17 +0800 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8", "locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE (product_id = 8) ORDER BY created_at asc LIMIT 2 OFFSET 0[0m
+Rendered products/show.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 296ms (Views: 124.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/show?id=8&locale=en" for 127.0.0.1 at Fri Aug 19 11:43:39 +0800 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8", "locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE (product_id = 8) ORDER BY created_at asc LIMIT 2 OFFSET 0[0m
+Rendered products/show.html.erb within layouts/application (140.4ms)
+Completed 200 OK in 265ms (Views: 202.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create?id=8&locale=en" for 127.0.0.1 at Fri Aug 19 11:43:56 +0800 2011
+  Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "id"=>"8", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/login?locale=en
+Completed 302 Found in 31ms
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Fri Aug 19 11:43:56 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 109ms (Views: 109.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Fri Aug 19 11:44:01 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"daiyuqiang", "commit"=>"Login", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'daiyuqiang' LIMIT 1[0m
+Redirected to http://localhost:3000/en
+Completed 302 Found in 265ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 11:44:01 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (31.2ms)
+Rendered carts/_cart.html.erb (62.4ms)
+Rendered store/index.html.erb within layouts/application (312.0ms)
+Completed 200 OK in 406ms (Views: 358.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create?id=8&locale=en" for 127.0.0.1 at Fri Aug 19 11:44:04 +0800 2011
+  Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "id"=>"8", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "favourites" WHERE (product_id = '8' and user_id = 26)[0m
+Redirected to http://localhost:3000/en/favourites
+Completed 302 Found in 47ms
+
+
+Started GET "/en/favourites" for 127.0.0.1 at Fri Aug 19 11:44:04 +0800 2011
+  Processing by FavouritesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mFavourite Load (0.0ms)[0m  [1mSELECT "favourites".* FROM "favourites" WHERE (user_id = 26) ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+Rendered favourites/index.html.erb within layouts/application (234.0ms)
+Completed 200 OK in 328ms (Views: 296.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 11:44:12 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (31.2ms)
+Rendered carts/_cart.html.erb (62.4ms)
+Rendered store/index.html.erb within layouts/application (202.8ms)
+Completed 200 OK in 499ms (Views: 265.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create?id=9&locale=en" for 127.0.0.1 at Fri Aug 19 11:44:15 +0800 2011
+  Processing by FavouritesController#create as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "id"=>"9", "locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "favourites" WHERE (product_id = '9' and user_id = 26)
+Redirected to http://localhost:3000/en/favourites
+Completed 302 Found in 62ms
+
+
+Started GET "/en/favourites" for 127.0.0.1 at Fri Aug 19 11:44:15 +0800 2011
+  Processing by FavouritesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mFavourite Load (0.0ms)[0m  SELECT "favourites".* FROM "favourites" WHERE (user_id = 26) ORDER BY created_at desc LIMIT 10 OFFSET 0
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+Rendered favourites/index.html.erb within layouts/application (218.4ms)
+Completed 200 OK in 328ms (Views: 280.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/line_items?product_id=9" for 127.0.0.1 at Fri Aug 19 11:44:21 +0800 2011
+  Processing by LineItemsController#create as JS
+  Parameters: {"product_id"=>"9", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "locale"=>"en", "_"=>""}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."product_id" = 9 AND ("line_items".cart_id = 132) LIMIT 1
+  [1m[36mAREL (15.6ms)[0m  [1mINSERT INTO "line_items" ("cart_id", "product_id", "quantity", "created_at", "order_id", "updated_at") VALUES (132, 9, 1, '2011-08-19 03:44:22.211036', NULL, '2011-08-19 03:44:22.211036')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 9 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (15.6ms)
+Rendered carts/_cart.html.erb (46.8ms)
+  [1m[35mSQL (0.0ms)[0m  SELECT SUM("line_items"."quantity") AS sum_id FROM "line_items" WHERE ("line_items".cart_id = 132)
+Rendered line_items/create.js.rjs (62.4ms)
+Completed 200 OK in 390ms (Views: 171.6ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/en/line_items/116" for 127.0.0.1 at Fri Aug 19 11:44:29 +0800 2011
+  Processing by LineItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "id"=>"116", "locale"=>"en"}
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."id" = 116 LIMIT 1[0m
+  [1m[35mAREL (15.6ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = 116
+Redirected to http://localhost:3000/en
+Completed 302 Found in 62ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 11:44:29 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (31.2ms)
+Rendered carts/_cart.html.erb (46.8ms)
+Rendered store/index.html.erb within layouts/application (218.4ms)
+Completed 200 OK in 421ms (Views: 280.8ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 19 11:44:44 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "search_name"=>"rails", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mProduct Load (15.6ms)[0m  select* from Products where title like '%rails%' or description like '%rails%' order by title
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (31.2ms)
+Rendered carts/_cart.html.erb (62.4ms)
+Rendered store/show_search.html.erb within layouts/application (280.8ms)
+Completed 200 OK in 468ms (Views: 405.6ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/show_search?locale=en" for 127.0.0.1 at Fri Aug 19 11:44:59 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by title[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (31.2ms)
+Rendered carts/_cart.html.erb (46.8ms)
+Rendered store/show_search.html.erb within layouts/application (327.6ms)
+Completed 200 OK in 421ms (Views: 374.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/show_search?locale=en&order=title&search_name=w" for 127.0.0.1 at Fri Aug 19 11:45:07 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"order"=>"title", "search_name"=>"w", "locale"=>"en"}
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mProduct Load (15.6ms)[0m  select* from Products where title like '%w%' or description like '%w%' order by title
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (109.2ms)
+Rendered carts/_cart.html.erb (140.4ms)
+Rendered store/show_search.html.erb within layouts/application (312.0ms)
+Completed 200 OK in 452ms (Views: 358.8ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/show_search?locale=en&order=price&search_name=w" for 127.0.0.1 at Fri Aug 19 11:45:10 +0800 2011
+  Processing by StoreController#show_search as HTML
+  Parameters: {"order"=>"price", "search_name"=>"w", "locale"=>"en"}
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mProduct Load (0.0ms)[0m  [1mselect* from Products where title like '%w%' or description like '%w%' order by price[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (31.2ms)
+Rendered carts/_cart.html.erb (62.4ms)
+Rendered store/show_search.html.erb within layouts/application (343.2ms)
+Completed 200 OK in 452ms (Views: 405.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 11:45:22 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (31.2ms)
+Rendered carts/_cart.html.erb (62.4ms)
+Rendered store/index.html.erb within layouts/application (343.2ms)
+Completed 200 OK in 468ms (Views: 405.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/logout?locale=en" for 127.0.0.1 at Fri Aug 19 11:45:41 +0800 2011
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "locale"=>"en"}
+Redirected to http://localhost:3000/en
+Completed 302 Found in 0ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 11:45:41 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (15.6ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (46.8ms)
+Rendered carts/_cart.html.erb (62.4ms)
+Rendered store/index.html.erb within layouts/application (280.8ms)
+Completed 200 OK in 421ms (Views: 327.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/show?id=8&locale=en" for 127.0.0.1 at Fri Aug 19 11:46:02 +0800 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8", "locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE (product_id = 8) ORDER BY created_at asc LIMIT 2 OFFSET 0[0m
+Rendered products/show.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 203ms (Views: 140.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/comments?id=8" for 127.0.0.1 at Fri Aug 19 11:46:09 +0800 2011
+  Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"description"=>"good"}, "commit"=>"Commit", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "id"=>"8", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/login?locale=en
+Completed 302 Found in 31ms
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Fri Aug 19 11:46:09 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 93.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Fri Aug 19 11:46:13 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"daiyuqiang", "commit"=>"Login", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'daiyuqiang' LIMIT 1[0m
+Redirected to http://localhost:3000/en
+Completed 302 Found in 16ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 11:46:13 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mUser Load (15.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (109.2ms)
+Rendered carts/_cart.html.erb (124.8ms)
+Rendered store/index.html.erb within layouts/application (280.8ms)
+Completed 200 OK in 406ms (Views: 327.6ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/show?id=8&locale=en" for 127.0.0.1 at Fri Aug 19 11:46:16 +0800 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8", "locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE (product_id = 8) ORDER BY created_at asc LIMIT 2 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (109.2ms)
+Completed 200 OK in 374ms (Views: 280.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/comments?id=8" for 127.0.0.1 at Fri Aug 19 11:46:23 +0800 2011
+  Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"description"=>"good"}, "commit"=>"Commit", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "id"=>"8", "locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "comments" ("user_id", "product_id", "description", "created_at", "updated_at") VALUES (26, 8, 'good', '2011-08-19 03:46:23.265359', '2011-08-19 03:46:23.265359')[0m
+Redirected to http://localhost:3000/show?id=8&locale=en
+Completed 302 Found in 62ms
+
+
+Started GET "/show?id=8&locale=en" for 127.0.0.1 at Fri Aug 19 11:46:23 +0800 2011
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8", "locale"=>"en"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE (product_id = 8) ORDER BY created_at asc LIMIT 2 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+Rendered products/show.html.erb within layouts/application (78.0ms)
+Completed 200 OK in 328ms (Views: 124.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 11:46:39 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (109.2ms)
+Rendered carts/_cart.html.erb (124.8ms)
+Rendered store/index.html.erb within layouts/application (296.4ms)
+Completed 200 OK in 390ms (Views: 343.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 19 15:02:32 +0800 2011
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (70.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (77.0ms)
+Rendered carts/_cart.html.erb (101.0ms)
+Rendered store/index.html.erb within layouts/application (5358.0ms)
+Completed 200 OK in 7378ms (Views: 5758.0ms | ActiveRecord: 70.0ms)
+
+
+Started POST "/logout?locale=en" for 127.0.0.1 at Fri Aug 19 15:02:50 +0800 2011
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "locale"=>"en"}
+Redirected to http://localhost:3000/en
+Completed 302 Found in 10ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 15:02:51 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (0.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (46.0ms)
+Rendered carts/_cart.html.erb (92.0ms)
+Rendered store/index.html.erb within layouts/application (484.0ms)
+Completed 200 OK in 711ms (Views: 551.0ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (31.0ms)[0m  DELETE FROM "comments" WHERE 1=1
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "orders" WHERE 1=1[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "messages" WHERE 1=1
+  [1m[36mAREL (10.0ms)[0m  [1mDELETE FROM "favourites" WHERE 1=1[0m
+  [1m[36mSQL (10.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (1.0ms)[0m  DELETE FROM "comments" WHERE 1=1
+  [1m[36mAREL (1.0ms)[0m  [1mDELETE FROM "orders" WHERE 1=1[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "messages" WHERE 1=1
+  [1m[36mAREL (1.0ms)[0m  [1mDELETE FROM "favourites" WHERE 1=1[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "comments" WHERE 1=1
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "orders" WHERE 1=1[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "messages" WHERE 1=1
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "favourites" WHERE 1=1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT 1 FROM "users" WHERE ("users"."name" = 'admin') LIMIT 1
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "users" ("hashed_password", "created_at", "updated_at", "name", "salt", "user_type") VALUES ('admin', '2011-08-19 07:07:43.555261', '2011-08-19 07:07:43.555261', 'admin', NULL, 1)[0m
+  [1m[36mSQL (4.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "comments" WHERE 1=1
+  [1m[36mAREL (1.0ms)[0m  [1mDELETE FROM "orders" WHERE 1=1[0m
+  [1m[35mAREL (1.0ms)[0m  DELETE FROM "messages" WHERE 1=1
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "favourites" WHERE 1=1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT 1 FROM "users" WHERE ("users"."name" = 'admin') LIMIT 1
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 15:11:04 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (20.0ms)
+Rendered carts/_cart.html.erb (82.0ms)
+Rendered store/index.html.erb within layouts/application (571.0ms)
+Completed 200 OK in 1062ms (Views: 745.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:12:26 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 152ms (Views: 151.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:12:29 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"daiyuqiang", "commit"=>"Login", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'daiyuqiang' LIMIT 1[0m
+Redirected to http://localhost:3000/en
+Completed 302 Found in 351ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 15:12:29 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (2.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (1.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (10.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (48.0ms)
+Rendered carts/_cart.html.erb (73.0ms)
+Rendered store/index.html.erb within layouts/application (403.0ms)
+Completed 200 OK in 722ms (Views: 484.0ms | ActiveRecord: 17.0ms)
+
+
+Started POST "/logout?locale=en" for 127.0.0.1 at Fri Aug 19 15:13:07 +0800 2011
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "locale"=>"en"}
+Redirected to http://localhost:3000/en
+Completed 302 Found in 2ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 15:13:07 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (1.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (48.0ms)
+Rendered carts/_cart.html.erb (97.0ms)
+Rendered store/index.html.erb within layouts/application (434.0ms)
+Completed 200 OK in 632ms (Views: 537.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:13:12 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 154ms (Views: 152.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:13:15 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"daiyuqiang", "commit"=>"Login", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'daiyuqiang' LIMIT 1[0m
+Redirected to http://localhost:3000/en
+Completed 302 Found in 68ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 15:13:15 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (2.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (1.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (6.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (112.0ms)
+Rendered carts/_cart.html.erb (152.0ms)
+Rendered store/index.html.erb within layouts/application (651.0ms)
+Completed 200 OK in 837ms (Views: 726.0ms | ActiveRecord: 10.0ms)
+
+
+Started POST "/logout?locale=en" for 127.0.0.1 at Fri Aug 19 15:13:21 +0800 2011
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "locale"=>"en"}
+Redirected to http://localhost:3000/en
+Completed 302 Found in 4ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 15:13:21 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (180.0ms)
+Rendered carts/_cart.html.erb (233.0ms)
+Rendered store/index.html.erb within layouts/application (495.0ms)
+Completed 200 OK in 758ms (Views: 649.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:13:26 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 196ms (Views: 195.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:13:54 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"qinjinghui", "commit"=>"Login", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'qinjinghui' LIMIT 1[0m
+Redirected to http://localhost:3000/admin?locale=en
+Completed 302 Found in 76ms
+
+
+Started GET "/admin?locale=en" for 127.0.0.1 at Fri Aug 19 15:13:55 +0800 2011
+  Processing by AdminController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+Rendered admin/index.html.erb within layouts/application (91.0ms)
+Completed 200 OK in 274ms (Views: 169.0ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (3.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (0.0ms)[0m  DELETE FROM "comments" WHERE 1=1
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "orders" WHERE 1=1[0m
+  [1m[35mAREL (1.0ms)[0m  DELETE FROM "messages" WHERE 1=1
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "favourites" WHERE 1=1[0m
+  [1m[35mAREL (13.0ms)[0m  DELETE FROM "users" WHERE 1=1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."name" = 'admin') LIMIT 1[0m
+  [1m[35mAREL (2.0ms)[0m  INSERT INTO "users" ("name", "hashed_password", "updated_at", "created_at", "salt", "user_type") VALUES ('admin', '9da06358771f7dac4ec47050f0cbffba0f560024ee82c766f1859a9e1be109a2', '2011-08-19 07:16:10.824698', '2011-08-19 07:16:10.824698', '441686880.407483081088899', 1)
+
+
+Started POST "/logout?locale=en" for 127.0.0.1 at Fri Aug 19 15:17:41 +0800 2011
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "locale"=>"en"}
+Redirected to http://localhost:3000/en
+Completed 302 Found in 245ms
+
+
+Started POST "/logout?locale=en" for 127.0.0.1 at Fri Aug 19 15:18:01 +0800 2011
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "locale"=>"en"}
+Redirected to http://localhost:3000/en
+Completed 302 Found in 0ms
+
+
+Started GET "/en" for 127.0.0.1 at Fri Aug 19 15:18:01 +0800 2011
+  Processing by StoreController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mProduct Load (2.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCart Load (0.0ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1
+  [1m[36mSQL (3.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mLineItem Load (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1
+Rendered line_items/_line_item.html.erb (18.0ms)
+Rendered carts/_cart.html.erb (208.0ms)
+Rendered store/index.html.erb within layouts/application (774.0ms)
+Completed 200 OK in 1135ms (Views: 843.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Aug 19 15:18:04 +0800 2011
+  Processing by StoreController#index as HTML
+  [1m[36mProduct Load (2.0ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY title, created_at desc LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36mCart Load (1.0ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = 132 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE ("line_items".cart_id = 132)[0m
+  [1m[35mLineItem Load (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE ("line_items".cart_id = 132)
+  [1m[36mProduct Load (1.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 8 ORDER BY title LIMIT 1[0m
+Rendered line_items/_line_item.html.erb (57.0ms)
+Rendered carts/_cart.html.erb (111.0ms)
+Rendered store/index.html.erb within layouts/application (481.0ms)
+Completed 200 OK in 702ms (Views: 560.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:18:13 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (118.0ms)
+Completed 200 OK in 264ms (Views: 264.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:18:16 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"qinjinghui", "commit"=>"Login", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" = 'qinjinghui' LIMIT 1
+Redirected to http://localhost:3000/login?locale=en
+Completed 302 Found in 81ms
+
+
+Started GET "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:18:17 +0800 2011
+  Processing by SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+Rendered sessions/new.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 165ms (Views: 164.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login?locale=en" for 127.0.0.1 at Fri Aug 19 15:18:27 +0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"admin", "commit"=>"Login", "authenticity_token"=>"IK9WElsN62JAkEwSsBHS+Ap47Gj8rOq3q6QKd6kbhoo=", "utf8"=>"✓", "locale"=>"en", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'admin' LIMIT 1[0m
+Redirected to http://localhost:3000/admin?locale=en
+Completed 302 Found in 230ms
+
+
+Started GET "/admin?locale=en" for 127.0.0.1 at Fri Aug 19 15:18:28 +0800 2011
+  Processing by AdminController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (4.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 33 LIMIT 1
+  [1m[36mSQL (8.0ms)[0m  [1mSELECT COUNT(*) FROM "orders"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 33 LIMIT 1
+Rendered admin/index.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 298ms (Views: 207.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/admin?locale=en" for 127.0.0.1 at Fri Aug 19 15:18:59 +0800 2011
+  Processing by AdminController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 33 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "orders"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 33 LIMIT 1[0m
+Rendered admin/index.html.erb within layouts/application (89.0ms)
+Completed 200 OK in 242ms (Views: 168.0ms | ActiveRecord: 3.0ms)
